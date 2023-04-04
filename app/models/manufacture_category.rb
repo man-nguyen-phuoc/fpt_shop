@@ -1,0 +1,2 @@
+class ManufactureCategory < ApplicationRecord
+end
