@@ -1,2 +1,0 @@
-class ManufactureCategory < ApplicationRecord
-end

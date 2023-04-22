@@ -7,7 +7,7 @@ class CreateAccessories < ActiveRecord::Migration[7.0]
       t.index :name
       t.decimal :price, null: false
       t.integer :quantity, null: false
-      t.string :thumnail, null: false
+      t.string :thumbnail, null: false
 
       t.timestamps
     end

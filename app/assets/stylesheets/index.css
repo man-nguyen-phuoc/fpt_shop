@@ -1,0 +1,36 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  padding: 0px;
+}
+
+.fs-content {
+  background-image: url("../image/background/637929172484358962_desk-header-bg-banner.webp");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  position: relative;
+  background-color: #f8f9fa;
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
+.fpt-sale-coutdown img {
+  width: 100%;
+}
+
+.banner-cs {
+  margin-bottom: 30px;
+}
+.banner-cs > img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.fs-footer {
+  height: 300px;
+}/*# sourceMappingURL=index.css.map */

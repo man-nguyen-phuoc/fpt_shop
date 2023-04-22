@@ -1,0 +1,23 @@
+<table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+    </tr>
+      <%- @categories.each do |category| %>
+        <tr>
+          <td><%= category.id %></td>
+          <td><%= category.name %></td>
+          <td><%= category.created_at %></td>
+          <td><%= category.updated_at %></td>
+          <td><%= link_to 'Edit', edit_manufacture_category_path(@manufacture, category)%></td>
+          <td><%= link_to 'Show', manufacture_category_path(@manufacture, category)%></td>
+          <td><%= link_to 'Show Products', manufacture_category_products_path(@manufacture, category)%></td>
+          <td><%= link_to 'Show Accessories', manufacture_category_accessories_path(@manufacture, category)%></td>
+        </tr>
+    <% end %>
+        <tr>
+        <td><%= link_to 'New Category', new_manufacture_category_path(@manufacture)%></td>
+        </tr>
+  </table>

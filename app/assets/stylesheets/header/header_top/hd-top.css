@@ -1,0 +1,90 @@
+/*# sourceMappingURL=hd-top.css.map */
+#header .hd-top {
+  background-color: #cd1817;
+  height: 56px;
+  display: flex;
+  position: relative;
+}
+#header .hd-top .hd-wrap {
+  display: flex;
+}
+#header .hd-top .hd-wrap a {
+  padding-right: 15%;
+}
+#header .hd-top .hd-wrap .hd-logo {
+  min-width: 50%;
+  height: 40px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  margin-top: 10px;
+}
+@media only screen and (max-width: 768px) {
+  #header .hd-top .hd-wrap .fpt-logo {
+    display: none;
+  }
+}
+#header .hd-top .hd-wrap .search-flex {
+  display: flex;
+  padding-top: 10px;
+  padding-right: 15%;
+}
+#header .hd-top .hd-wrap .search-flex .search-text {
+  max-width: 498px;
+  height: 37px;
+  padding: 0px 0px 0px 16px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+#header .hd-top .hd-wrap .search-flex button.search-icon {
+  width: 58px;
+  height: 37px;
+  background-color: black;
+  align-items: center;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+#header .hd-top .hd-wrap .search-flex button.search-icon .fa-magnifying-glass {
+  color: #fff;
+  font-size: 20px;
+}
+#header .hd-top .hd-wrap .hd-top-mn {
+  display: flex;
+  margin: 0px;
+  padding: 0;
+}
+#header .hd-top .hd-wrap .hd-top-mn li {
+  list-style: none;
+  padding: 6px 0px 2px 2px;
+  text-align: center;
+  position: relative;
+  padding: 0 2%;
+  float: left;
+}
+#header .hd-top .hd-wrap .hd-top-mn li a {
+  text-decoration: none;
+  color: white;
+}
+#header .hd-top .hd-wrap .hd-top-mn li a i {
+  font-size: 20px;
+  padding-top: 5px;
+}
+#header .hd-top .hd-wrap .hd-top-mn li a span {
+  display: block;
+  font-size: 14px;
+  margin-top: 4px;
+}
+#header .hd-top .hd-wrap .hd-top-mn li .dropdown-menu-dark {
+  background-color: #fff;
+}
+#header .hd-top .hd-wrap .hd-top-mn li .dropdown-menu-dark li {
+  padding: 0px;
+  margin-right: 30px;
+}
+#header .hd-top .hd-wrap .hd-top-mn li .dropdown-menu-dark li a {
+  color: #808080;
+}
+@media only screen and (max-width: 425px) {
+  #header .hd-top .hd-wrap .hd-top-mn .hd-top-item-1 {
+    display: none;
+  }
+}/*# sourceMappingURL=hd-top.css.map */

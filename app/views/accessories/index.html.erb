@@ -1,0 +1,35 @@
+<h1>Accessory</h1>
+
+<table>
+    <tr>
+      <th>ID</th>
+      <th>Category_id</th>
+      <th>Manufacture_id</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Thumnail</th>
+      <th>Created_at</th>
+      <th>Updated_at</th>
+
+    </tr>
+      <%- @accessories.each do |accessory| %>
+        <tr>
+          <td><%= accessory.id %></td>
+          <td><%= accessory.manufacture_id %></td>
+          <td><%= accessory.category_id %></td>
+          <td><%= accessory.name %></td>
+          <td><%= accessory.price %></td>
+          <td><%= accessory.quantity %></td>
+          <td><%= accessory.thumnail %></td>
+          <td><%= accessory.created_at %></td>
+          <td><%= accessory.updated_at %></td>
+          <td><%= link_to 'Edit', edit_manufacture_category_accessory_path(@manufacture, @category, accessory)%></td>
+          <td><%= link_to 'Show', manufacture_category_accessory_path(@manufacture, @category, accessory)%></td>
+        </tr>
+    <% end %>
+        <tr>
+        <td><%= link_to 'New Accessory', new_manufacture_category_accessory_path(@manufacture, @category)%></td>
+        </tr>
+  </table>
+

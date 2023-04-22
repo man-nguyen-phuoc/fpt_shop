@@ -1,0 +1,26 @@
+<%- if flash[:error] %>
+  <p><%= flash[:error] %></p>
+<% else %>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+    </tr>
+    <%- @manufactures.each do |manufacture| %>
+      <tr>
+        <td><%= manufacture.id %></td>
+        <td><%= manufacture.name %></td>
+        <td><%= manufacture.created_at %></td>
+        <td><%= manufacture.updated_at %></td>
+        <td><%= link_to 'Edit', edit_manufacture_path(manufacture) %></td>
+        <td><%= link_to 'Show', manufacture_path(manufacture) %></td>
+        <td><%= link_to 'Show Category', manufacture_categories_path(manufacture) %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td><%= link_to 'New Mannufacture', new_manufacture_path(@manufacture)%></td>
+    </tr>
+  </table>
+<% end %>

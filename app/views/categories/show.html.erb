@@ -1,0 +1,15 @@
+<table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+    </tr>
+        <tr>
+          <td><%= @category.id %></td>
+          <td><%= @category.name %></td>
+          <td><%= @category.created_at %></td>
+          <td><%= @category.updated_at %></td>
+        </tr>
+          <td><%= button_to "Deleted", manufacture_category_path(@manufacture, @category), method: :delete %></td>
+  </table>

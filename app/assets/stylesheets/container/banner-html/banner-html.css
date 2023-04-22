@@ -1,0 +1,30 @@
+#banner-html .category-container .bn-sale {
+  text-align: center;
+  align-items: center;
+  border-radius: 5px;
+}
+#banner-html .category-container .bn-sale .bn-head {
+  margin-bottom: 10px;
+}
+#banner-html .category-container .bn-sale .bn-list {
+  margin-bottom: 20px;
+  padding: 0 40px;
+}
+#banner-html .category-container .bn-sale .bn-list .bn-item {
+  justify-content: center;
+}
+#banner-html .category-container .bn-sale .bn-bottom {
+  height: 30px;
+  margin: 20px auto;
+  padding-bottom: 50px;
+}/*# sourceMappingURL=banner-html.css.map */
+
+@media only screen and (max-width: 750px) {
+  #banner-html .category-container .bn-sale .bn-head .head-tit img {
+    width: 50%;
+  }
+
+  #banner-html .category-container .bn-sale .bn-bottom img {
+    width: 80%;
+  }
+}

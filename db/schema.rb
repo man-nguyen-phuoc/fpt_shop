@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_04_032003) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_19_130015) do
   create_table "accessories", charset: "utf8mb3", force: :cascade do |t|
     t.integer "category_id", null: false
     t.integer "manufacture_id", null: false
     t.string "name", null: false
     t.decimal "price", precision: 10, null: false
     t.integer "quantity", null: false
-    t.string "thumnail", null: false
+    t.string "thumbnail", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_accessories_on_name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_032003) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "thumbnail"
   end
 
   create_table "categories_manufactures", charset: "utf8mb3", force: :cascade do |t|
@@ -53,6 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_032003) do
     t.date "released_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "ram"
   end
 
   create_table "manufactures", charset: "utf8mb3", force: :cascade do |t|
@@ -68,9 +70,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_032003) do
     t.string "name", null: false
     t.integer "quantity", null: false
     t.decimal "price", precision: 10, null: false
-    t.string "thumnail", null: false
+    t.string "thumbnail", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sell_number"
+    t.integer "discount"
     t.index ["name"], name: "index_products_on_name"
   end
 

@@ -19,6 +19,13 @@ gem 'mysql2'
 #faker rails
 gem 'faker'
 
+#kaminari
+gem 'kaminari'
+
+#bootstrap
+gem 'bootstrap', '~> 5.3.0.alpha3'
+
+
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
@@ -55,6 +62,7 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -76,3 +84,4 @@ group :test do
 end
 
 gem "activerecord-import", "~> 1.4"
+gem "turbo-rails"
