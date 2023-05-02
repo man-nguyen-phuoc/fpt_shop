@@ -1,8 +1,8 @@
-<div class="product-sale col-md-3">
-  <div class="product-img " style=" background-image: url(./image/list-product/images.png); background-repeat: no-repeat; height: 210px; background-size: 100%;">
+<div class="product-sale <%= class_name %> filter-product">
+  <div class="product-img">
     <%= render 'products/detail', product: product, category: product.category %>
     <div class="product-label">
-      <span class="product-label1">Installment 0 %</span>
+      <span class="product-label1">Sell numbers <%= product.sell_number%></span>
       <span class="product-label2">Discount <%= product.discount %> %</span>
     </div>
     </div>
@@ -28,7 +28,7 @@
           </span>
           <span title="screen">
             <i class="fa-solid fa-mobile-screen-button"></i>
-            <%= product.configuration.screens%>
+            <%= truncate(product.configuration.screens, length: 20)%>
           </span><br>
           <span title="RAM">
             <i class="fa-solid fa-microchip"></i>

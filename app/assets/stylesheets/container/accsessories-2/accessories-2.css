@@ -3,9 +3,11 @@
   border-radius: 5px;
   margin-bottom: 20px;
   box-sizing: border-box;
+  margin-top: 30px;
+  padding-bottom: 1px;
 }
 #accessories-2 .list-accessories {
-  margin: 0px auto;
+  margin: 10px;
 }
 #accessories-2 .list-accessories .item-accessories {
   padding: 0px;
@@ -17,7 +19,7 @@
   color: #646970;
 }
 #accessories-2 .list-accessories .item-accessories .cat-item a .accessory_thumbnail {
-  width: 160px;
+  width: 154px;
 }
 #accessories-2 .list-accessories div.item-accessories:hover {
   box-shadow: 0 0 10px 5px #dee2e6;

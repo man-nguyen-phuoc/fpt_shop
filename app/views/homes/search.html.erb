@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-3">
+    <%= render partial: 'filter' %>
+  </div>
+  <div class="col-9">
+    <div class="filter_search">
+      <div class="card">
+        <div class="card_body">
+          <div class="filter-normal">
+            <div class="row filter_product">
+              <%- @products.each do |product|%>
+                <%= render partial: 'products', locals: { product: product, category: product.category, class_name: 'col-md-4'} %>
+              <% end %>
+              <%= paginate @products %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

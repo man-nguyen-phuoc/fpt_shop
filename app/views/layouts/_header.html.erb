@@ -1,43 +1,54 @@
 <div id="header">
   <div class="hd-top">
     <div class="hd-wrap container">
-      <a class="fpt-logo" href="#">
-        <%# <%= image_tag "FPT_Shop.webp", class: "hd-logo" %>
-      </a>
-      <form class="search-flex">
-        <input type="text" id="key" class="search-text" placeholder="Enter name mobile phone, computer, tablet...need to find">
-        <button class="search-icon">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </form>
-      <ul class="hd-top-mn">
-        <li class="nav-item dropdown hd-top-item-1">
-          <a style="padding: 0px; height: 56px;" class="nav-link" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-file"></i>
-            <span>Good information</span>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">New information</a></li>
-            <li><a class="dropdown-item" href="#">Discount</a></li>
-            <li><a class="dropdown-item" href="#">Tips</a></li>
-            <li><a class="dropdown-item" href="#">For Gamers</a></li>
-            <li><a class="dropdown-item" href="#">Video hot</a></li>
-            <li><a class="dropdown-item" href="#">Evaluate-Advies</a></li>
-            <li><a class="dropdown-item" href="#">App & Game</a></li>
-            <li><a class="dropdown-item" href="#">Event</a></li>
-          </ul>
-        </li>
-        <li class="hd-top-item-1">
-          <a href=""><i class="fa-solid fa-list-check"></i>
-            <span>pay & utilities</span>
-          </a>
-        </li>
-        <li class="hd-top-item-2">
-          <a href=""><i class="fa-solid fa-cart-shopping"></i>
-            <span>cart</span>
-          </a>
-        </li>
-      </ul>
+      <div class="row">
+        <div class="col-4">
+          <%= link_to root_path, class: 'fpt-logo', method: :root do %>
+            <%= image_tag 'payment_support/logo-fpt-png'%>
+            <%= image_tag 'payment_support/logo-fpt-png'%>
+            <%= image_tag 'payment_support/logo-fpt-png'%>
+          <% end %>
+        </div>
+        <div class="col-4">
+          <%- if params[:controller] = "homes" && params[:action] != "search"%>
+            <%= form_tag search_homes_path, method: :get, class: "search-flex" do %>
+              <%= text_field_tag :key, params[:key], id: "key", class: "search-text", placeholder: "Enter name mobile phone, computer, tablet...need to find" %>
+              <%= button_tag type: "submit", class: "search-icon" do %>
+                <i class="fa-solid fa-magnifying-glass"></i>
+              <% end %>
+            <% end %>
+          <% else %>
+          <% end %>
+        </div>
+        <div class="col-4 hd-mn">
+          <div class="row">
+            <div class="col-3 hd-mn-item">
+              <a class="nav-link" href="#">
+                <i class="fa-solid fa-file"></i>
+                <span>Good information</span>
+              </a>
+            </div>
+            <div class="col-3 hd-mn-item">
+              <a class="nav-link"  href="">
+                <i class="fa-solid fa-list-check"></i>
+                <span>pay & utilities</span>
+              </a>
+            </div>
+            <div class="col-3 hd-mn-item">
+              <a class="nav-link"  href="">
+                <i class="fa-solid fa-user"></i>
+                <span>my account</span>
+              </a>
+            </div>
+            <div class="col-3 hd-mn-item">
+              <a class="nav-link"  href="">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>cart</span>
+              </a>
+            </div>
+          </div>
+        </div>      
+      </div>
     </div>
   </div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">

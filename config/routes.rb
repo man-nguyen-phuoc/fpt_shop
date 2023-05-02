@@ -25,4 +25,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "homes#index"
+
+  resources :homes do
+    collection do
+      get 'search'
+    end
+  end
 end

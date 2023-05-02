@@ -143,17 +143,17 @@
   <div class="banner-sale">
     <img src="./image/banner-sale.webp" alt="" style="width: 100%; border-radius:5px; margin-bottom: 20px;">
   </div>                              
-  <div class="content-sale slide-product">
-    <div class="row">
+  <section class="content-sale slide-product">
       <div class="prd-sale">
           <h2>HOT PROMOTION</h2>
-        </div>
-    <%- @products.each do |product|%>
-        <%= render partial: 'products', locals: { product: product, category: product.category } %>
-      <% end %>
-    </div>
-  </div>
-<div class="banner-cs">
+      </div>
+      <div class="row product-list">
+        <%- @products.each do |product|%>
+          <%= render partial: 'products', locals: { product: product, category: product.category, class_name: 'col-md-3' } %>
+        <% end %>
+      </div>
+  </section>
+<div class="row banner-cs">
   <img src="./image/banner-cs/637896382102651933_F-H5_1200x200.webp" alt="" style="width: 100%; border-radius: 5px;">
 </div>
 <div class="fs-bnord" id="banner-html">
@@ -207,11 +207,11 @@
   </div>
     <div class="row product-list">
       <%- @sale_products.each do |product| %>
-        <%= render partial: 'products', locals: { product: product, category: product.category } %>
+        <%= render partial: 'products', locals: { product: product, category: product.category, class_name: 'col-md-3' } %>
       <% end %>
     </div>
 </section>
-<div class="banner-cs">
+<div class="row banner-cs">
   <img src="https://images.fpt.shop/unsafe/fit-in/1200x200/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/6/30/637922251892840909_F-H5_1200x200.png" alt="">
 </div>
 <section class="content-sale" id="product-list">
@@ -220,7 +220,7 @@
   </div>
     <div class="row product-list">
       <%- @sale_2_products.each do |product|%>
-        <%= render partial: 'products', locals: { product: product, category: product.category } %>
+        <%= render partial: 'products', locals: { product: product, category: product.category, class_name: 'col-md-3' } %>
       <% end %>
     </div>
 </section>
@@ -233,12 +233,12 @@
   </div>
     <div class="row product-list">
       <%- @sale_3_products.each do |product| %>
-        <%= render partial: 'products', locals: { product: product, category: product.category } %>
+        <%= render partial: 'products', locals: { product: product, category: product.category, class_name: 'col-md-3' } %>
       <% end %>
     </div>
 </section>
 <div class="banner-cs">
-  <div class="row" style="height:160px; justify-content: space-between;">
+  <div class="row">
     <div class="col-6">
       <img style="border-radius: 5px; width: 100%;" src="https://images.fpt.shop/unsafe/fit-in/590x160/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/7/11/637931767838555080_F-C3_590x160.png" alt="">
     </div>
