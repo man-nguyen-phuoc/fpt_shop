@@ -1,0 +1,12 @@
+<section class="content-sale" id="product-list">
+  <div class="prd-sale">
+    <h2><%= @products.first.category.name %></h2>
+  </div>
+    <div class="row product-list">
+      <%- @products.each do |product| %>
+          <%= render partial: '/homes/products', locals: { product: product, category: product.category, class_name: 'col-md-3' } %>
+      <% end %>
+    </div>
+</section>
+
+<%= paginate @products %>

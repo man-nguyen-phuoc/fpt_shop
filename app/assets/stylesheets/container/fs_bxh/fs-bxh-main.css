@@ -1,0 +1,16 @@
+#fs-bxh {
+  padding-bottom: 15px;
+}
+#fs-bxh .fs-bxh-main {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+#fs-bxh li {
+  list-style: none;
+  width: 33.333333%;
+}
+#fs-bxh li span img {
+  border-radius: 7px;
+  max-width: 100%;
+}/*# sourceMappingURL=fs-bxh-main.css.map */

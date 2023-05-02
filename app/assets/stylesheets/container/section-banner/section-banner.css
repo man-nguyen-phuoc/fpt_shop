@@ -1,0 +1,81 @@
+.section-banner {
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 20px 0px;
+}
+.section-banner .box-left {
+  padding-right: 0px;
+}
+.section-banner .box-left .swiper-container {
+  margin: 5px;
+}
+.section-banner .box-left .swiper-container .carousel-item img {
+  border-radius: 5px;
+}
+.section-banner .box-left .swiper-container button span {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #b1bac6;
+  border-radius: 50%;
+  font-size: 20px;
+  background-color: #f0f8fe;
+}
+.section-banner .box-left .swiper-container .swiper-slide {
+  padding: 0px;
+  text-align: center;
+}
+.section-banner .box-left .swiper-container .swiper-slide a {
+  text-decoration: none;
+  color: #5a5d60;
+}
+.section-banner .box-left .swiper-container .swiper-slide a .sl-name {
+  padding: 9px 10px 0px;
+}
+.section-banner .box-left .swiper-container .swiper-slide a:hover {
+  color: #212529;
+  font-weight: 700;
+}
+.section-banner .box-left .swiper-container .swiper-slide:hover {
+  border-bottom: 2px solid #ce381c;
+}
+.section-banner .box-right {
+  padding-left: 0px;
+}
+.section-banner .box-right .box-right-bn .box-right-bn-sl {
+  margin: 5px;
+}
+.section-banner .box-right .box-right-bn .box-right-bn-sl img {
+  width: 100%;
+  border-radius: 5px;
+}
+.section-banner .box-right .box-right-news {
+  padding: 4px 5px 9px 5px;
+}
+.section-banner .box-right .box-right-news .box-body .caption-char {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+}
+.section-banner .box-right .box-right-news .box-body .caption-char p {
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #6c757d;
+}
+.section-banner .box-right .box-right-news .box-body .caption-char a {
+  text-decoration: none;
+}
+.section-banner .box-right .box-right-news .box-body .news-item a {
+  text-decoration: none;
+}
+.section-banner .box-right .box-right-news .box-body .news-item a .picture {
+  display: flex;
+}
+.section-banner .box-right .box-right-news .box-body .news-item a .picture .news-item-if-mess p {
+  padding-left: 5px;
+  color: #1f1f1f;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0px;
+}/*# sourceMappingURL=section-banner.css.map */

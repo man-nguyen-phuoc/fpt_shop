@@ -1,0 +1,116 @@
+
+.filter {
+  font-weight: 400;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,.125);
+}
+
+.filter .filter_block {
+  padding-bottom: 15px;
+}
+
+
+.filter .filter_block .list_screens {
+  overflow-y: scroll;
+  max-height: 500px;
+}
+
+.filter .filter_block .list_screens::-webkit-scrollbar {
+  display: none;
+
+}
+
+
+.filter .btn-filter {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.filter:last-child {
+  padding-bottom: 0px;
+}
+
+.filter .filter_block .filter_checklist {
+  margin: 0;
+}
+
+.filter .filter_block .filter_title {
+  padding-bottom: 5px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.filter .filter_block .form-check {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.filter .filter_block .form-check input {
+  width: 16px;
+  height: 16px;
+}
+
+.filter .filter_block .form-check label {
+  padding-top: 2px;
+}
+
+.filter_search .card {
+  padding: 25px;
+}
+
+.filter_search .card .ft-list-tab {
+  display: flex;
+}
+
+.filter_search .card .ft-list-tab .list-ft {
+  display: flex;
+  list-style: none;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-inline-start: 0;
+}
+
+.filter_search .card .ft-list-tab .list-ft .item-ft {
+  padding-right: 10px;
+}
+
+.filter_search .card .ft-list-tab .list-ft .item-ft .order-ft {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  border-color: #dfdfdf;
+  position: relative;
+  width: 70px;
+}
+
+.filter_search .card .ft-list-tab .list-ft .item-ft .order-ft p {
+  margin: 0px;
+  padding-right: 10px;
+}
+
+.filter_search .card .ft-list-tab .list-ft .item-ft .order-ft i.fa-sort-up {
+  position: absolute;
+  top: 12px;
+  right: 4px;
+}
+
+.filter_search .card .ft-list-tab .list-ft .item-ft .order-ft i.fa-sort-down {
+  position: absolute;
+  top: 6px;
+  right: 4px;
+}
+
+.filter_search .card .ft-list-tab .list-ft .item-ft a {
+  text-decoration: none;
+  margin-left: -1px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 19px;
+  color: #6c757d;
+}
+
+.filter_search .card_body .ft-grid-tab .filter_product {
+  padding: 20px;
+}

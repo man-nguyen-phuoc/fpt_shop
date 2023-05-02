@@ -1,0 +1,5 @@
+<%= form_with url: manufacture_category_path(@manufacture, @category), method: :put do |form| %>
+  <%= form.label :name, "Name" %>
+  <%= form.text_field :name, value: @category.name %>
+  <%= form.submit "Updated" %>
+<% end %>

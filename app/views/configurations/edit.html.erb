@@ -1,0 +1,77 @@
+<%= form_with url: manufacture_category_product_configuration_path(@product.manufacture, @product.category, @product), method: :put do |f| %>
+<div>
+  <%= f.label :product_id, 'Product Id' %><br>
+  <%= f.text_field :product_id, value: @configuration.product_id %>
+</div>
+
+<div>
+  <%= f.label :screens, 'Screens' %><br>
+  <%= f.text_field :screens, value: @configuration.screens %>
+</div>
+
+<div>
+  <%= f.label :backside_camera, 'Backside Camera' %><br>
+  <%= f.text_field :backside_camera, value: @configuration.backside_camera %>
+</div>
+
+<div>
+  <%= f.label :front_camera, 'Front Camera' %><br>
+  <%= f.text_field :front_camera, value: @configuration.front_camera %>
+</div>
+
+<div>
+  <%= f.label :memory_in, 'Memory In' %><br>
+  <%= f.text_field :memory_in, value: @configuration.memory_in %>
+</div>
+
+<div>
+  <%= f.label :cpu, 'CPU' %><br>
+  <%= f.text_field :cpu, value: @configuration.cpu %>
+</div>
+
+<div>
+  <%= f.label :gpu, 'GPU' %><br>
+  <%= f.text_field :gpu, value: @configuration.gpu %>
+</div>
+
+<div>
+  <%= f.label :battery_capacity, 'Battery Capacity' %><br>
+  <%= f.text_field :battery_capacity, value: @configuration.battery_capacity %>
+</div>
+
+<div>
+  <%= f.label :sim, 'Sim' %><br>
+  <%= f.text_field :sim, value: @configuration.sim %>
+</div>
+
+<div>
+  <%= f.label :operating_system, 'Operating System' %><br>
+  <%= f.text_field :operating_system, value: @configuration.operating_system %>
+</div>
+
+<div>
+  <%= f.label :made_by, 'Made By' %><br>
+  <%= f.text_field :made_by, value: @configuration.made_by %>
+</div>
+
+<div>
+  <%= f.label :released_time, 'Released Time' %><br>
+  <%= f.text_field :released_time, value: @configuration.released_time %>
+</div>
+
+<div>
+  <%= f.label :made_by, 'Made By' %><br>
+  <%= f.text_field :made_by, value: @configuration.made_by %>
+</div>
+
+<div>
+  <%= f.label :made_by, 'Made By' %><br>
+  <%= f.text_field :made_by, value: @configuration.made_by %>
+</div>
+
+
+
+<div>
+  <%= f.submit "Updated" %>
+</div>
+<% end %>

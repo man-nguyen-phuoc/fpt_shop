@@ -1,0 +1,35 @@
+<%= form_with url: manufacture_category_product_path(@manufacture, @category, @product), method: :put do |f| %>
+<div>
+  <%= f.label :manufacture_id, 'Manufacture_id' %><br>
+  <%= f.text_field :manufacture_id, value: @product.manufacture_id %>
+</div>
+
+<div>
+  <%= f.label :category_id, 'Category_id' %><br>
+  <%= f.text_field :category_id, value: @product.category_id %>
+</div>
+
+<div>
+  <%= f.label :name, 'Name' %><br>
+  <%= f.text_field :name, value: @product.name %>
+</div>
+
+<div>
+  <%= f.label :thumnail, 'Thumnail' %><br>
+  <%= f.text_field :thumnail, value: @product.thumnail %>
+</div>
+
+<div>
+  <%= f.label :quantity, 'Quantity' %><br>
+  <%= f.text_field :quantity, value: @product.quantity %>
+</div>
+
+<div>
+  <%= f.label :price, 'Price' %><br>
+  <%= f.text_field :price, value: @product.price %>
+</div>
+
+<div>
+  <%= f.submit "Updated" %>
+</div>
+<% end %>

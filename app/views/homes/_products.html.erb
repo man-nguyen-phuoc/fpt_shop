@@ -1,0 +1,75 @@
+<div class="product-sale <%= class_name %> filter-product">
+  <div class="product-img">
+    <%= render 'products/detail', product: product, category: product.category %>
+    <div class="product-label">
+      <span class="product-label1">Sell numbers <%= product.sell_number%></span>
+      <span class="product-label2">Discount <%= product.discount %> %</span>
+    </div>
+    </div>
+    <div class="cdt-product-info">
+      <a href="#" class="cdt-product-name"><b><%= product.name %></b></a>
+      <div class="cdt-product_show-promo">
+        <div class="progress">
+          <p><%= currency_to_number(product.price) %></p>
+          <div class="progress-bar"></div>
+        </div>
+        <div class="strike-price">
+          <p><%= currency_to_number(product.price * product.discount / 100 ) %></p>
+          <div class="cd">
+
+          </div>
+        </div>
+      </div>
+      <div class="cdt-product__config">
+        <div class="cdt-product_config_param">
+          <span  title="CPU">
+            <i class="fa-solid fa-microchip"></i>
+            <%= product.configuration.cpu%>
+          </span>
+          <span title="screen">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <%= truncate(product.configuration.screens, length: 20)%>
+          </span><br>
+          <span title="RAM">
+            <i class="fa-solid fa-microchip"></i>
+            <%= product.configuration.ram %> GB
+          </span>
+          <span title="internal memory">
+            <i class="fa-solid fa-sim-card"></i>
+            <%= product.configuration.memory_in%>
+          </span>
+        </div>
+        <div class="cdt-product__img-promo">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+              <button class="nav-link" id="moca-20-tab" data-bs-toggle="pill" data-bs-target="#moca-20" type="button" role="tab" aria-controls="moca-20" aria-selected="true">
+                <%= image_tag '638143263918283970_PMH-02-01.webp'%>
+              </button>
+            </li>
+            <li role="presentation">
+              <button class="nav-link" id="evo-20-tab" data-bs-toggle="pill" data-bs-target="#evo-20" type="button" role="tab" aria-controls="evo-20" aria-selected="false">
+                <%= image_tag '638109347803877667_Evo.webp'%>
+              </button>
+            </li>
+            <li role="presentation">
+              <button class="nav-link" id="vnpay-20-tab" data-bs-toggle="pill" data-bs-target="#vnpay-20" type="button" role="tab" aria-controls="vnpay-20" aria-selected="false">
+                <%= image_tag '638002156152811193_Logo-VNPAYQR.webp'%>
+              </button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="pills-tabContent">
+            <div id="moca-20" class="tab-pane fade in active">
+              <p>70% discount when paying via moca wallet on grap app.</p>
+            </div>
+            <div id="evo-20" class="tab-pane fade">
+              <p>Up to 1.1 million when using TPBANK EVO card.</p>
+            </div>
+            <div id="vnpay-20" class="tab-pane fade">
+              <p>Enter code EPTIP13 to get 5% discount up to VND 500,000 when paying via VNPAY-QR.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

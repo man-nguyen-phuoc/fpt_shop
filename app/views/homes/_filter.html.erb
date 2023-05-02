@@ -1,0 +1,87 @@
+    <%= form_tag search_homes_path, method: 'get' do %>
+      <div class="filter">
+        <div class="filter_block">
+          <%= text_field_tag :key, params[:key], id: "key", class: "search-text form-control ", placeholder: "Enter name mobile phone, computer, tablet...need to find" %>
+        </div>
+        <div class="filter_block">
+          <div class="ft-list-tab form-control">
+            <%= hidden_field_tag :price_order, next_order_direction(params[:price_order]) %>
+            <div class="tab-group">
+              <%= button_tag type: 'submit', class: 'order-ft btn form-control' do %>
+                Price
+                <%- if params[:price_order] == 'desc' %>
+                  <i class="fa-sharp fa-solid fa-sort-down"></i>
+                <% else %>
+                  <i class="fa-sharp fa-solid fa-sort-up"></i>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="filter_block">
+          <div class="filter_title">manufactures</div>
+          <div class="row filter_checklist">
+            <%- @manufactures.each do |manufacture| %>
+              <div class="col-6 form-check">
+                <%= check_box_tag 'manufactures[]', manufacture.id, params[:manufactures] && params[:manufactures].include?(manufacture.id.to_s), class: "form-check-input" %>
+                <label class="form-check-label" for="flexCheckDefault"><%= manufacture.name %></label>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <br />
+        <div class="filter_block">
+          <div class="filter_title">price</div>
+          <div class="filter_price">
+            <div class="form-check">
+              <%= check_box_tag 'prices[]', '*-2000000', params[:prices] && params[:prices].include?('*-2000000'), class: "form-check-input"%>
+              <label class="form-check-label" for="flexCheckDefault">Less than 2 million</label>
+            </div>
+          </div>
+
+          <div class="filter_price">
+            <div class="form-check">
+              <%= check_box_tag 'prices[]', '2000000-4000000', params[:prices] && params[:prices].include?('2000000-4000000'), class: "form-check-input"%>
+              <label class="form-check-label" for="flexCheckDefault">From 2-4 million</label>
+            </div>
+          </div>
+
+          <div class="filter_price">
+            <div class="form-check">
+              <%= check_box_tag 'prices[]', '4000000-7000000', params[:prices] && params[:prices].include?('4000000-7000000'), class: "form-check-input"%>
+              <label class="form-check-label" for="flexCheckDefault">From 4-7 million</label>
+            </div>
+          </div>
+
+          <div class="filter_price">
+            <div class="form-check">
+              <%= check_box_tag 'prices[]', '7000000-13000000', params[:prices] && params[:prices].include?('7000000-13000000'), class: "form-check-input"%>
+              <label class="form-check-label" for="flexCheckDefault">From 7-13 million</label>
+            </div>
+          </div>
+
+          <div class="filter_price">
+            <div class="form-check">
+              <%= check_box_tag 'prices[]', '13000000-*', params[:prices] && params[:prices].include?('13000000-*'), class: "form-check-input"%>
+              <label class="form-check-label" for="flexCheckDefault">Over 13 millions</label>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="filter_block">
+          <div class="filter_title">screens</div>
+          <div class="list_screens">
+            <%- @configurations.each do |configuration|%>
+              <div class="filter_screens ">
+                <div class="form-check">
+                  <%= check_box_tag 'screens[]',configuration.screens, params[:screens] && params[:screens].include?(configuration.screens) , class: "form-check-input"%>
+                  <label class="form-check-label" for="flexCheckDefault"><%= configuration.screens %></label>
+                </div>
+              </div>
+            <% end%>
+          </div>
+        </div>
+        <br />
+        <%= submit_tag 'Filter', class: 'btn btn-primary btn-filter' %>
+      </div>
+    <% end %>

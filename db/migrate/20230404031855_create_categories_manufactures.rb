@@ -1,4 +1,4 @@
-class CreateManufactureCategories < ActiveRecord::Migration[7.0]
+class CreateCategoriesManufactures < ActiveRecord::Migration[7.0]
   def change
     create_table :categories_manufactures do |t|
       t.belongs_to :manufacture

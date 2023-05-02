@@ -1,0 +1,27 @@
+<table>
+    <tr>
+      <th>ID</th>
+      <th>Manufacture_id</th>
+      <th>Category_id</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Thumnail</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+    </tr>
+        <tr>
+          <td><%= @accessory.id %></td>
+          <td><%= @accessory.manufacture_id %></td>
+          <td><%= @accessory.category_id %></td>
+          <td><%= @accessory.name %></td>
+          <td><%= @accessory.quantity %></td>
+          <td><%= @accessory.price %></td>
+          <td><%= @accessory.thumnail %></td>
+          <td><%= @accessory.created_at %></td>
+          <td><%= @accessory.updated_at %></td>
+        </tr>
+          <td>
+          <%= button_to "Deleted", manufacture_category_accessory_path(@manufacture, @accessory.category, @accessory), method: :delete %>
+        </td>
+  </table>

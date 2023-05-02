@@ -1,0 +1,74 @@
+/*# sourceMappingURL=hd-top.css.map */
+#header .hd-top {
+  background-color: #cd1817;
+  height: 66px;
+  display: flex;
+  position: relative;
+}
+
+#header .hd-top .hd-wrap {
+  display: flex;
+}
+
+#header .hd-top .hd-wrap a {
+  padding-right: 15%;
+}
+
+#header .hd-top .hd-wrap .row .col-4 .fpt-logo img {
+  width: 16%;
+  padding-top: 5px;
+}
+
+
+@media only screen and (max-width: 768px) {
+  #header .hd-top .hd-wrap .fpt-logo {
+    display: none;
+  }
+}
+
+#header .hd-top .hd-wrap .search-flex {
+  display: flex;
+  padding-top: 10px;
+}
+
+#header .hd-top .hd-wrap .search-flex .search-text {
+  max-width: 498px;
+  height: 37px;
+  padding: 0px 0px 0px 16px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+#header .hd-top .hd-wrap .search-flex button.search-icon {
+  width: 58px;
+  height: 37px;
+  background-color: black;
+  align-items: center;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#header .hd-top .hd-wrap .search-flex button.search-icon .fa-magnifying-glass {
+  color: #fff;
+  font-size: 20px;
+}
+
+#header .hd-top .hd-wrap .row .hd-mn-item {
+  text-align: center;
+  margin-top: 15px;
+}
+
+#header .hd-top .hd-wrap .row .hd-mn .nav-link {
+  display: inline-grid;
+  font-size: 15px;
+  padding: 0;
+  color: white;
+}
+
+#header .hd-top .hd-wrap .row .hd-mn .nav-link i {
+  padding-bottom: 5px;
+}
+
+#header .hd-top .hd-wrap .row .hd-mn .nav-link span {
+  font-size: 10px;
+}

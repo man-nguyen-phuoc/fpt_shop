@@ -1,0 +1,5 @@
+<%= form_with url: "/manufactures", method: :post do |form| %>
+  <%= form.label :name, "Name" %>
+  <%= form.text_field :name %>
+  <%= form.submit "Created" %>
+<% end %>

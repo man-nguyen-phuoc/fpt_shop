@@ -3,5 +3,5 @@ class Manufacture < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :accessories, dependent: :destroy
 
-  validates :name, length: { in: (6..20) }
+  validates :name, presence: true, length: { minimum: 6 }
 end

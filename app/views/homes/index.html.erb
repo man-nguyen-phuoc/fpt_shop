@@ -1,0 +1,283 @@
+<div class="fpt-sale">
+  <div class="fpt-sale-coutdown">
+      <div class="cale-cd-title">
+        <a href="#">
+          <img src="./image/title.webp" alt="event">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="section-banner">
+    <div class="row row-sm-12">
+      <div class="box-left col-sm-8">
+        <div class="swiper-container">
+          <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+              <%= image_tag 'header_sale/638157124889798203_43C88733-7795-455B-9BDB-AD1649C733CF.webp'%>
+              </div>
+              <div class="carousel-item">
+              <%= image_tag 'header_sale/638159006091431304_F-H1_800x300.webp'%>
+              </div>
+              <div class="carousel-item">
+              <%= image_tag 'header_sale/638159015819146668_F-H1_800x300.webp'%>
+              </div>
+              <div class="carousel-item">
+              <%= image_tag 'header_sale/638159425274323242_F-H1_800x300.webp'%>
+              </div>
+              <div class="carousel-item">
+              <%= image_tag 'header_sale/638161126584785152_F-H1_800x300.webp'%>
+              </div>
+              <div class="carousel-item">
+              <%= image_tag 'header_sale/638161150403008970_F-H1_800x300.webp'%>
+              </div>
+              <div class="carousel-item">
+              <%= image_tag 'header_sale/638163024151567829_F-H1_800x300.webp'%>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+        <div class="swiper-container">
+          <div class="row row-flex">
+            <div class="col swiper-slide">
+              <a href="">
+                <div class="sl-name">iPhone 13 series reduced to 7.5 million VND</div>
+              </a>
+            </div>
+            <div class="col swiper-slide">
+              <a href="">
+                <div class="sl-name">xiaomi simultaneously discount up to 50%</div>
+              </a>
+            </div>
+            <div class="col swiper-slide">
+              <a href="">
+                <div class="sl-name">galaxy s22 series shock reduction</div>
+              </a>
+            </div>
+            <div class="col swiper-slide">
+              <a href="">
+                <div class="sl-name">reno 7.0 old shock reduction from 8,190,000 VND</div>
+              </a>
+            </div>
+            <div class="col swiper-slide">
+              <a href="">
+                <div class="sl-name">Fan reduces shock by up to 50%</div>
+              </a>
+            </div>
+            <div class="col swiper-slide">
+              <a href="">
+                <div class="sl-name">vico y21 series new price from 3,990,000 VND</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box-right col-sm-4">
+        <div class="box-right-bn">
+          <div class="box-right-bn-sl margin-5">
+            <a href="#">
+              <img src="https://images.fpt.shop/unsafe/fit-in/385x100/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/7/29/637946497402736271_F-H2_385x100.png" alt="">
+            </a>
+          </div>
+          <div class="box-right-bn-sl">
+            <a href="#">
+              <img src="https://images.fpt.shop/unsafe/fit-in/385x100/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/6/25/637917590025356189_F-H2_385x100-2.png" alt="">
+            </a>
+          </div>
+        </div>
+        <div class="box-right-news">
+          <div class="box-body">
+            <div class="caption-char">
+              <p>Highlights</p>
+              <a href="">see all</a>
+            </div>
+            <article class="news-item">
+              <a href="#">
+                <span class="picture">
+                  <img src="https://images.fpt.shop/unsafe/fit-in/70x40/filters:quality(90):fill(white)/https://fptshop.com.vn/Uploads/images/2015/PhuongMT5/FPT-0.png" alt="">
+                  <div class="news-item-if-mess">
+                    <p>Receive a voucher of 50,000 VND</p>
+                  </div>
+                </span>
+              </a>
+            </article>
+            <article class="news-item">
+              <a href="#">
+                <span class="picture">
+                  <img src="https://images.fpt.shop/unsafe/fit-in/70x40/filters:quality(90):fill(white)/https://fptshop.com.vn/Uploads/images/2015/CTKM-Voucher/react/viber_image_2022-07-11_11-19-32-434.png" alt="">
+                  <div class="news-item-if-mess">
+                    <p>Xiaomi m11 pro receive a discount of 3,090,000 VND</p>
+                  </div>
+                </span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="content-box-1">
+    <div class="row row-flex list-accessories bg-white">
+      <%- @categories.each do |category| %>
+        <div class="item-accessories col-sx-6 col-md-3 col-sm-4 col-lg-2">
+          <%= link_to category_products_path(category), class: "ct-item-a ct-transition" do %>
+            <div class="cate-item text-center">
+              <picture class="picture">
+                <%= image_tag category.thumbnail %>
+              </picture>
+              <div class="cate-item-name"><%= category.name%></div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </section>
+  <div class="banner-sale">
+    <img src="./image/banner-sale.webp" alt="" style="width: 100%; border-radius:5px; margin-bottom: 20px;">
+  </div>                              
+  <section class="content-sale slide-product">
+      <div class="prd-sale">
+          <h2>HOT PROMOTION</h2>
+      </div>
+      <div class="row product-list">
+        <%- @products.each do |product|%>
+          <%= render partial: 'products', locals: { product: product, category: product.category, class_name: 'col-md-3' } %>
+        <% end %>
+      </div>
+  </section>
+<div class="row banner-cs">
+  <img src="./image/banner-cs/637896382102651933_F-H5_1200x200.webp" alt="" style="width: 100%; border-radius: 5px;">
+</div>
+<div class="fs-bnord" id="banner-html">
+  <div class="category-container">
+    <div class="bn-sale" style="background: url(./image/background/637929172484358962_desk-header-bg-banner.webp); background-size: 100% 100%; background-color: brown;">
+      <div class="bn-head">
+        <div class="head-tit" style="text-align: center;">
+          <img src="./image/banner-cs/7-banner.png" alt="">
+        </div>
+      </div>
+      <div class="row bn-list">
+        <div class="col bn-item col-sx-6 col-sm-3">
+          <div style="background-color: white; border-radius: 5px">
+            <div class="list-img">
+              <img src="https://images.fpt.shop/unsafe/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/7/15/637935171029803088_html-banner.png" alt="Apple giảm đến 20%++" style="max-width: 100%;">
+            </div>
+          </div>
+        </div>
+        <div class="col bn-item col-sx-6 col-sm-3">
+          <div style="background-color: white; border-radius: 5px">
+            <div class="list-img">
+              <img src="https://images.fpt.shop/unsafe/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/7/15/637935171031211191_html-banner2.png" alt="Apple giảm đến 20%++" style="max-width: 100%;">
+            </div>
+          </div>
+        </div>
+        <div class="col bn-item col-sx-6 col-sm-3">
+          <div style="background-color: white; border-radius: 5px">
+            <div class="list-img">
+              <img src="https://images.fpt.shop/unsafe/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/7/15/637935171031211191_html-banner3.png" alt="Apple giảm đến 20%++" style="max-width: 100%;">
+            </div>
+          </div>
+        </div>
+        <div class="col bn-item col-sx-6 col-sm-3">
+          <div style="background-color: white; border-radius: 5px">
+            <div class="list-img">
+              <img src="https://images.fpt.shop/unsafe/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/7/15/637935171031211191_html-banner4.png" alt="Apple giảm đến 20%++" style="max-width: 100%;">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bn-bottom">
+        <img src="https://fptshop.com.vn/Uploads/originals/2022/7/8/637928761641525476_des-sub-text.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Product List 123 -->
+<section class="content-sale" id="product-list">
+  <div class="prd-sale">
+    <h2><%= @sale_products.first.category.name %></h2>
+  </div>
+    <div class="row product-list">
+      <%- @sale_products.each do |product| %>
+        <%= render partial: 'products', locals: { product: product, category: product.category, class_name: 'col-md-3' } %>
+      <% end %>
+    </div>
+</section>
+<div class="row banner-cs">
+  <img src="https://images.fpt.shop/unsafe/fit-in/1200x200/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/6/30/637922251892840909_F-H5_1200x200.png" alt="">
+</div>
+<section class="content-sale" id="product-list">
+  <div class="prd-sale">
+    <h2><%= @sale_2_products.first.category.name%></h2>
+  </div>
+    <div class="row product-list">
+      <%- @sale_2_products.each do |product|%>
+        <%= render partial: 'products', locals: { product: product, category: product.category, class_name: 'col-md-3' } %>
+      <% end %>
+    </div>
+</section>
+<div class="banner-cs">
+  <img src="https://images.fpt.shop/unsafe/fit-in/1200x100/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/7/5/637926428304638915_F-H7_1200x100.png" alt="">
+</div>
+<section class="content-sale" id="product-list">
+  <div class="prd-sale">
+    <h2><%= @sale_3_products.first.category.name %></h2>
+  </div>
+    <div class="row product-list">
+      <%- @sale_3_products.each do |product| %>
+        <%= render partial: 'products', locals: { product: product, category: product.category, class_name: 'col-md-3' } %>
+      <% end %>
+    </div>
+</section>
+<div class="banner-cs">
+  <div class="row">
+    <div class="col-6">
+      <img style="border-radius: 5px; width: 100%;" src="https://images.fpt.shop/unsafe/fit-in/590x160/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/7/11/637931767838555080_F-C3_590x160.png" alt="">
+    </div>
+    <div class="col-6">
+      <img style="border-radius: 5px; width: 100%;" src="https://images.fpt.shop/unsafe/fit-in/590x160/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/6/30/637922302516230858_F-C3_590x160.png" alt="">
+    </div>
+  </div>
+</div>
+<div id="accessories-2">
+  <div class="accessories-title">
+    <h3><b>LIST ACCESSORIES</b></h3>
+  </div>
+  <div class="row list-accessories">
+    <%- @accessories.each do |accessory| %>
+      <div class="col item-accessories">
+        <div class="cat-item text-center">
+          <a href="">
+            <%= image_tag( accessory.thumbnail, class: "accessory_thumbnail" ) %>
+            <div class="cat-item-name"><%= accessory.name %></div>
+          </a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="row banner-final">
+  <div class="col-lg-4">
+    <a href="">
+      <img src="https://images.fpt.shop/unsafe/fit-in/394x115/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/6/4/637584199039669299_icon-desktop-1.png" alt="">
+    </a>
+  </div>
+  <div class="col-lg-4">
+    <a href="">
+      <img src="https://images.fpt.shop/unsafe/fit-in/394x115/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/6/4/637584199040294624_icon-desktop.png" alt="">
+    </a>
+  </div>
+  <div class="col-lg-4">
+    <a href="">
+      <img src="https://images.fpt.shop/unsafe/fit-in/394x115/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/5/12/637248776517146629_f-friends.png" alt="">
+    </a>
+  </div>
+</div>
