@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_25_070856) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_24_055251) do
   create_table "accessories", charset: "utf8mb3", force: :cascade do |t|
     t.integer "category_id", null: false
     t.integer "manufacture_id", null: false
@@ -20,7 +20,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_070856) do
     t.string "thumbnail", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sell_number"
     t.index ["name"], name: "index_accessories_on_name"
+  end
+
+  create_table "carts", charset: "utf8mb3", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", charset: "utf8mb3", force: :cascade do |t|
@@ -28,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_070856) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "thumbnail"
+    t.string "category_type", null: false
   end
 
   create_table "categories_manufactures", charset: "utf8mb3", force: :cascade do |t|
@@ -37,6 +45,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_070856) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_categories_manufactures_on_category_id"
     t.index ["manufacture_id"], name: "index_categories_manufactures_on_manufacture_id"
+  end
+
+  create_table "configuration_accessories", charset: "utf8mb3", force: :cascade do |t|
+    t.integer "accessory_id"
+    t.string "connect_type"
+    t.text "feature"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "configurations", charset: "utf8mb3", force: :cascade do |t|
@@ -64,6 +80,32 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_070856) do
     t.index ["name"], name: "index_manufactures_on_name", unique: true
   end
 
+  create_table "order_detail_items", charset: "utf8mb3", force: :cascade do |t|
+    t.integer "order_detail_id", null: false
+    t.integer "itemable_id", null: false
+    t.string "itemable_type", null: false
+    t.integer "quantity", default: 1, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "cart_id"
+  end
+
+  create_table "order_details", charset: "utf8mb3", force: :cascade do |t|
+    t.integer "total_price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", charset: "utf8mb3", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "order_detail_id", null: false
+    t.integer "shipping_address_id", null: false
+    t.string "order_key", null: false
+    t.string "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", charset: "utf8mb3", force: :cascade do |t|
     t.integer "manufacture_id", null: false
     t.integer "category_id", null: false
@@ -77,6 +119,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_070856) do
     t.integer "discount"
     t.string "feature"
     t.index ["name"], name: "index_products_on_name"
+  end
+
+  create_table "shipping_addresses", charset: "utf8mb3", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "city"
+    t.string "district"
+    t.string "address"
+    t.string "receiver_name"
+    t.integer "receiver_phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.integer "phone_number", null: false
+    t.string "password", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "area_code"
   end
 
 end

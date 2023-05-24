@@ -2,7 +2,7 @@
   <div class="fpt-sale-coutdown">
       <div class="cale-cd-title">
         <a href="#">
-          <img src="./image/title.webp" alt="event">
+          <img src="" alt="event">
         </a>
       </div>
     </div>
@@ -126,7 +126,7 @@
   </div>
   <section class="content-box-1">
     <div class="row row-flex list-accessories bg-white">
-      <%- @categories.each do |category| %>
+      <%- @categories_0.each do |category| %>
         <div class="item-accessories col-sx-6 col-md-3 col-sm-4 col-lg-2">
           <%= link_to category_products_path(category), class: "ct-item-a ct-transition" do %>
             <div class="cate-item text-center">
@@ -149,7 +149,7 @@
       </div>
       <div class="row product-list">
         <%- @products.each do |product|%>
-          <%= render partial: 'products', locals: { product: product, category: product.category, class_name: 'col-md-3' } %>
+          <%= render partial: 'itemables/itemables', locals: { itemable: product, category: product.category, class_name: 'col-md-3' } %>
         <% end %>
       </div>
   </section>
@@ -207,7 +207,7 @@
   </div>
     <div class="row product-list">
       <%- @sale_products.each do |product| %>
-        <%= render partial: 'products', locals: { product: product, category: product.category, class_name: 'col-md-3' } %>
+        <%= render partial: 'itemables/itemables', locals: { itemable: product, category: product.category, class_name: 'col-md-3' } %>
       <% end %>
     </div>
 </section>
@@ -220,7 +220,7 @@
   </div>
     <div class="row product-list">
       <%- @sale_2_products.each do |product|%>
-        <%= render partial: 'products', locals: { product: product, category: product.category, class_name: 'col-md-3' } %>
+        <%= render partial: 'itemables/itemables', locals: { itemable: product, category: product.category, class_name: 'col-md-3' } %>
       <% end %>
     </div>
 </section>
@@ -233,7 +233,7 @@
   </div>
     <div class="row product-list">
       <%- @sale_3_products.each do |product| %>
-        <%= render partial: 'products', locals: { product: product, category: product.category, class_name: 'col-md-3' } %>
+        <%= render partial: 'itemables/itemables', locals: { itemable: product, category: product.category, class_name: 'col-md-3' } %>
       <% end %>
     </div>
 </section>
@@ -252,13 +252,13 @@
     <h3><b>LIST ACCESSORIES</b></h3>
   </div>
   <div class="row list-accessories">
-    <%- @accessories.each do |accessory| %>
+    <%- @categories_1.each do |category| %>
       <div class="col item-accessories">
         <div class="cat-item text-center">
-          <a href="">
-            <%= image_tag( accessory.thumbnail, class: "accessory_thumbnail" ) %>
-            <div class="cat-item-name"><%= accessory.name %></div>
-          </a>
+          <%= link_to category_accessories_path(category) do %>
+            <%= image_tag( category.thumbnail, class: "accessory_thumbnail" ) %>
+            <div class="cat-item-name"><%= category.name %></div>
+          <% end %>
         </div>
       </div>
     <% end %>

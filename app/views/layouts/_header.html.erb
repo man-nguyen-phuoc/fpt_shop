@@ -12,7 +12,7 @@
         <div class="col-4">
           <%- if params[:controller] = "homes" && params[:action] != "search"%>
             <%= form_tag search_homes_path, method: :get, class: "search-flex" do %>
-              <%= text_field_tag :key, params[:key], id: "key", class: "search-text", placeholder: "Enter name mobile phone, computer, tablet...need to find" %>
+              <%= text_field_tag :key, params[:key], id: "key", class: "search-text", placeholder: "Enter name mobile phone, computer, tablet..." %>
               <%= button_tag type: "submit", class: "search-icon" do %>
                 <i class="fa-solid fa-magnifying-glass"></i>
               <% end %>
@@ -23,28 +23,28 @@
         <div class="col-4 hd-mn">
           <div class="row">
             <div class="col-3 hd-mn-item">
-              <a class="nav-link" href="#">
-                <i class="fa-solid fa-file"></i>
-                <span>Good information</span>
-              </a>
-            </div>
-            <div class="col-3 hd-mn-item">
-              <a class="nav-link"  href="">
-                <i class="fa-solid fa-list-check"></i>
-                <span>pay & utilities</span>
-              </a>
-            </div>
-            <div class="col-3 hd-mn-item">
-              <a class="nav-link"  href="">
-                <i class="fa-solid fa-user"></i>
-                <span>my account</span>
-              </a>
-            </div>
-            <div class="col-3 hd-mn-item">
-              <a class="nav-link"  href="">
+              <%= link_to  carts_path, class: "nav-link", method: :get do %>
                 <i class="fa-solid fa-cart-shopping"></i>
-                <span>cart</span>
-              </a>
+                <span>Carts</span>
+              <% end %>
+            </div>
+            <div class="col-3 hd-mn-item">
+              <%= link_to payment_homes_path, class: "nav-link", method: :get do %>
+                <i class="fa-solid fa-credit-card"></i>
+                <span>pay & utilities</span>
+              <% end %>
+            </div>
+            <div class="col-3 hd-mn-item">
+              <%= link_to users_path, class: "nav-link", method: :get do %>
+                <i class="fa-solid fa-user"></i>
+                <span>Account</span>
+              <% end %>
+            </div>
+            <div class="col-3 hd-mn-item">
+              <%= link_to orders_path, class: "nav-link", method: :get do %>
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>Orders</span>
+              <% end %>
             </div>
           </div>
         </div>      

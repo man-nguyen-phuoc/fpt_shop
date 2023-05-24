@@ -1,0 +1,2 @@
+class ConfigurationAccessory < ApplicationRecord
+end

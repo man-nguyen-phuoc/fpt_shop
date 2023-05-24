@@ -1,0 +1,18 @@
+ <div class="cdt-product_config_param">
+  <span  title="CPU">
+    <i class="fa-solid fa-microchip"></i>
+    <%= itemable.configuration.cpu%>
+  </span>
+  <span title="screen">
+    <i class="fa-solid fa-mobile-screen-button"></i>
+    <%= truncate(itemable.configuration.screens, length: 20)%>
+  </span><br>
+  <span title="RAM">
+    <i class="fa-solid fa-microchip"></i>
+    <%= itemable.configuration.ram %> GB
+  </span>
+  <span title="internal memory">
+    <i class="fa-solid fa-sim-card"></i>
+    <%= itemable.configuration.memory_in%>
+  </span>
+</div>

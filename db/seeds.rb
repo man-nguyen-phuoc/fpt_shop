@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-
 5.times do
   Manufacture.create(name: Faker::Name.name)
 end
@@ -13,7 +5,8 @@ end
 Manufacture.all.each do |manufacture|
   5.times do
     manufacture.categories.create(name: Faker::Name.name,
-                                  thumbnail: Faker::Avatar.image)
+                                  thumbnail: Faker::Avatar.image,
+                                  category_type: rand(0..1))
   end
 
   Category.all.each do |category|
@@ -24,6 +17,7 @@ Manufacture.all.each do |manufacture|
         name: Faker::Name.name,
         price: rand(1000000..10000000),
         quantity: rand(100..500),
+        sell_number: rand(10..100),
         thumbnail: Faker::Avatar.image
       )
     end
@@ -58,5 +52,31 @@ Product.all.each do |product|
     made_by: Faker::Company.name,
     released_time: Faker::Time.between_dates(from: Date.today - 4, to: Date.today, period: :all),
     ram: rand(200..400)
+  )
+end
+
+Accessory.all.each do |accessory|
+  ConfigurationAccessory.create(
+    accessory_id: accessory.id,
+    connect_type: Faker::Name.name,
+    feature: Faker::Markdown.emphasis
+  )
+end
+
+User.all.each do |user|
+  ShippingAddress.create(
+    user_id: user.id,
+    city: Faker::Address.city,
+    district: Faker::Name.name,
+    address: Faker::Address.street_address,
+    receiver_name: Faker::Name.name,
+    receiver_phone_number: Faker::PhoneNumber.phone_number_with_country_code
+  )
+end
+
+
+10.times do
+  OrderDetail.create(
+    total_price: rand(1000000..2000000)
   )
 end

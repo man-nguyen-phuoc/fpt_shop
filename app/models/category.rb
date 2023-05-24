@@ -4,4 +4,6 @@ class Category < ApplicationRecord
   has_many :products, dependent: :destroy
 
   validates :name, length: { in: (6..20) }
+
+  enum category_type: [ :product, :accessory ]
 end
