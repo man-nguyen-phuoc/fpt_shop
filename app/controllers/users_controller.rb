@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
-  def create
-    User.create(user_params)
-  end
-
   def edit
     @user = current_user
     @shipping_address = @user.shipping_address

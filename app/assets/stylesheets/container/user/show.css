@@ -1,12 +1,22 @@
   #profile {
     margin-top: 20px;
   }
+
+  .profile-ct-1 {
+    padding-top: 38px;
+  }
   
   .profile-img {
     border-radius: 50%;
     width: 200px;
     height: 200px;
-    padding: 20px 0 20px; 
+    padding: 20px 0 20px;
+  }
+
+
+  .panel-body {
+    background-color: #fff;
+    border-radius: 5px;
   }
 
   .fa-cog {
@@ -24,6 +34,7 @@
 
   #profile .profile-logout {
     border-radius: 5px;
+    width: 264px;
   }
 
   .profile-setting .profile-text p {
