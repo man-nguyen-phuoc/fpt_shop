@@ -15,7 +15,8 @@ class OrdersController < ApplicationController
 
               total_price = 0
 
-              order_detail_items = User.first.cart.order_detail_items
+
+              order_detail_items = current_user.cart.order_detail_items
 
               order_detail_items.each do |item|
                 item.orderable = order_detail

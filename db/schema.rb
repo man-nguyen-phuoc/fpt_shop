@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_01_083557) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_03_054509) do
   create_table "accessories", charset: "utf8mb3", force: :cascade do |t|
     t.integer "category_id", null: false
     t.integer "manufacture_id", null: false
@@ -110,7 +110,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_083557) do
   end
 
   create_table "order_detail_items", charset: "utf8mb3", force: :cascade do |t|
-    t.integer "order_detail_id", null: false
     t.integer "itemable_id", null: false
     t.string "itemable_type", null: false
     t.integer "quantity", default: 1, null: false
