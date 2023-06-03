@@ -47,12 +47,21 @@ Rails.application.routes.draw do
 
   resources :carts
 
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+
   resources :users do
     resources :orders
+    resources :carts do
+      collection do
+        post 'filter'
+      end
+    end
 
     collection do
-      get 'login'
+      get 'input'
     end
   end
-
 end

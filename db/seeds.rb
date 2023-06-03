@@ -80,3 +80,10 @@ end
     total_price: rand(1000000..2000000)
   )
 end
+
+User.all.each do |user|
+  Cart.create(
+    total_price: 0,
+    user_id: user.id
+  )
+end

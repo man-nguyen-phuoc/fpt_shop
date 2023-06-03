@@ -1,14 +1,30 @@
 class CartsController < ApplicationController
   def index
-    # @cart = Cart.create(
-    #   user_id: params[:user_id]
-    # )
+    @user = current_user
+    @order_detail_items = @user.cart.order_detail_items
+  end
 
-    # @itemable = params[:itemable_type].constantize.find_by(id: params[:itemable_id])
+  def create
+    user = current_user
+    cart = Cart.find_by(user_id: user.id)
 
-    # @order_detail_items = @cart.order_detail_items.create(
-    #   itemable: @itemable,
-    #   cart_id: @cart.id
-    # )
+    itemable = params[:itemable_type].constantize.find_by(id: params[:itemable_id])
+
+    if itemable
+      order_detail_item = cart.order_detail_items.find_by(itemable: itemable)
+
+      if order_detail_item
+        order_detail_item.update!(quantity: order_detail_item.quantity + 1)
+      else
+        cart.order_detail_items.create!(
+          orderable: cart,
+          itemable: itemable
+        )
+      end
+
+      redirect_to user_carts_path(user)
+    else
+      redirect_back
+    end
   end
 end

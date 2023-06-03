@@ -35,18 +35,18 @@
           <p class="text-secondary mb-1">(Additional tax may apply on checkout)</p>
         </div>
         <div class="buttons d-flex my-5">
-          <%= form_tag carts_path, method: :get do %>
+          <%= form_tag user_carts_path(@user), method: :post do %>
             <%= hidden_field_tag :itemable_id, itemable.id %>
             <%= hidden_field_tag :itemable_type, itemable.class.name %>
             <div class="block">
-              <%= submit_tag 'Add to cart', class: 'shadow btn custom-btn' %>
+              <%= submit_tag 'Add to cart', class: 'btn custom-btn' %>
             </div>
           <% end %>
           <%= form_tag order_details_path, method: :get, class: 'd-flex' do %>
             <%= hidden_field_tag :itemable_id, itemable.id %>
             <%= hidden_field_tag :itemable_type, itemable.class.name %>
             <div class="block">
-              <%= submit_tag 'Order', class: 'shadow btn custom-btn' %>
+              <%= submit_tag 'Order', class: 'btn custom-btn' %>
             </div>
             <div class="block quantity">
               <input type="number" class="form-control" id="cart_quantity" value="1" placeholder="Enter email" name="quantity">

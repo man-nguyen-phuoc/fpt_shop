@@ -11,29 +11,31 @@
             </div>
             <div class="card shadow-0 border mb-4">
             <%- @order_detail_items.each do |item|%>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-2">
-                      <%= image_tag item.itemable.thumbnail, class: "img-fluid border", alt: 'Phone'%>
+              <%= link_to detail_itemable(item.itemable), class: "text-decoration-none" do %>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-2">
+                        <%= image_tag item.itemable.thumbnail, class: "img-fluid border", alt: 'Phone'%>
+                    </div>
+                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                      <p class="text-muted mb-0"><%= item.itemable.name %></p>
+                    </div>
+                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                      <p class="text-muted mb-0 small">White</p>
+                    </div>
+                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                      <p class="text-muted mb-0 small">Price: <%=currency_to_number(item.itemable.real_price) %></p>
+                    </div>
+                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                      <p class="text-muted mb-0 small">Quantity: <%= item.quantity%></p>
+                    </div>
+                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                      <p class="text-muted mb-0 small">Total: <%= currency_to_number(order_summary(item.itemable, item.quantity)) %></p>
+                    </div>
                   </div>
-                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0"><%= item.itemable.name %></p>
-                  </div>
-                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small">White</p>
-                  </div>
-                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small">Price: <%=currency_to_number(item.itemable.real_price) %></p>
-                  </div>
-                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small">Quantity: <%= item.quantity%></p>
-                  </div>
-                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small">Total: <%= currency_to_number(order_summary(item.itemable, item.quantity)) %></p>
-                  </div>
+                  <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
                 </div>
-                <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
-              </div>
+              <% end %>
             <% end %>
             </div>
 

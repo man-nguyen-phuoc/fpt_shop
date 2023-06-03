@@ -87,3 +87,5 @@ end
 
 gem "activerecord-import", "~> 1.4"
 gem "turbo-rails"
+
+gem 'devise'

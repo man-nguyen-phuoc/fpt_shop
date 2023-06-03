@@ -35,10 +35,18 @@
               <% end %>
             </div>
             <div class="col-3 hd-mn-item">
-              <%= link_to users_path, class: "nav-link", method: :get do %>
+
+            <% if user_signed_in? %>
+              <%= link_to user_path(current_user), class: "nav-link", method: :get do %>
+                <i class="fa-solid fa-id-card"></i>
+                <span>Your profice</span>
+              <% end %>
+            <% else %>
+              <%= link_to new_user_session_path, class: "nav-link", method: :get do %>
                 <i class="fa-solid fa-user"></i>
                 <span>Account</span>
               <% end %>
+            <% end %>
             </div>
             <div class="col-3 hd-mn-item">
               <%= link_to orders_path, class: "nav-link", method: :get do %>

@@ -1,0 +1,52 @@
+  #profile {
+    margin-top: 20px;
+  }
+  
+  .profile-img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    padding: 20px 0 20px; 
+  }
+
+  .fa-cog {
+    padding-right: 10px;
+  }
+
+  #profile .profile-setting {
+    padding: 20px;
+  }
+
+  #profile .profile-edit {
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+
+  #profile .profile-logout {
+    border-radius: 5px;
+  }
+
+  .profile-setting .profile-text p {
+    margin-bottom: 0px;
+    float: left;
+  }
+
+  .profile-setting .profile-icon {
+    float: right;
+  }
+
+  .fa-sign-out {
+    padding-right: 10px;
+  }
+
+  .profile-contact {
+    padding: 38px 10px 10px 10px;
+  }
+
+  .profile-contact i {
+    padding-right: 10px;
+  }
+
+  .profile-contact li {
+    color: #6c757d;
+  }

@@ -1,5 +1,6 @@
 class HomesController < ApplicationController
   before_action :init_order, only: :search
+
   def index
     @categories_0 = Category.limit(12).product
 

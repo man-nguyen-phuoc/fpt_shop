@@ -1,8 +1,6 @@
 class OrderDetailItem < ApplicationRecord
   belongs_to :itemable, polymorphic: true
-  belongs_to :order_detail
-  belongs_to :cart
-
+  belongs_to :orderable, polymorphic: true
   # after_save :update_total_price
 
   # private

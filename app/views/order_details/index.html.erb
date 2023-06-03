@@ -48,8 +48,8 @@
       </div>
     </div>
     <div class="col-lg-4 payment-summary">
-    <%= form_tag user_orders_path(@user), method: :get do%>
-      <%= hidden_field_tag :order_detail_id, @order_detail_item.order_detail.id%>
+    <%= form_tag user_orders_path(@user), method: :post do%>
+      <%= hidden_field_tag :order_detail_id, @order_detail_item.orderable.id%>
       <p class="fw-bold pt-lg-0 pt-4 pb-2">Payment Summary</p>
       <div class="card px-md-3 px-2 pt-4">
         <div class="unregistered mb-4"> <span class="py-1">unregistered account</span> </div>
