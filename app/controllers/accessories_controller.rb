@@ -1,10 +1,9 @@
 class AccessoriesController < ApplicationController
   before_action :set_accessory, only: [:show, :edit, :update, :destroy]
-  before_action :set_manufacture, only: [:index, :new, :create, :show, :destroy, :edit, :update]
-  before_action :set_category, only: [:index, :new, :create]
+  before_action :set_category, only: [:index, :new, :create, :show]
 
   def index
-    @accessories = @category.accessories.limit(200)
+    @accessories = @category.accessories.limit(200).page(params[:page]).per(8)
   end
 
   def new
@@ -22,6 +21,7 @@ class AccessoriesController < ApplicationController
   end
 
   def show
+    @accessories = @category.accessories.page(params[:page]).per(8)
   end
 
   def destroy
@@ -48,10 +48,6 @@ class AccessoriesController < ApplicationController
 
   def set_accessory
     @accessory = Accessory.find(params[:id])
-  end
-
-  def set_manufacture
-    @manufacture = Manufacture.find(params[:manufacture_id])
   end
 
   def set_category

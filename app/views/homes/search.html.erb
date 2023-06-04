@@ -8,10 +8,10 @@
         <div class="card_body">
           <div class="filter-normal">
             <div class="row filter_product">
-              <%- @products.each do |product|%>
-                <%= render partial: 'products', locals: { product: product, category: product.category, class_name: 'col-md-4'} %>
+              <%- @itemables.each do |item|%>
+                <%= render partial: 'itemables/itemables', locals: { itemable: item, category: item.category, class_name: 'col-md-4'} %>
               <% end %>
-              <%= paginate @products %>
+              <%= paginate @itemables %>
             </div>
           </div>
         </div>

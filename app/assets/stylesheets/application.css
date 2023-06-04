@@ -15,3 +15,7 @@
  */
  @import "bootstrap";
  
+ .container {
+  max-width: 1320px !important;
+  padding: 0 12px !important;
+ }

@@ -1,0 +1,38 @@
+.pay_element {
+  padding-bottom: 24px;
+}
+
+.pay_type {
+  background: #eee;
+  display: flex;
+}
+
+.pay_ct {
+  display: flex;
+  text-decoration: none;
+}
+
+.pay_ct:hover .pay_it {
+  color: white;
+  background-color: #cb1c22;
+}
+
+.pay_it {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid #dfdfdf;
+  text-align: center;
+  color: #cb1c22;
+  transition: 0.1s;
+  line-height: 100px;
+  font-size: 50px;
+}
+
+.pay_name {
+  padding-left: 20px;
+  line-height: 100px;
+  font-size: 16px;
+  color: #4470ab
+}
+

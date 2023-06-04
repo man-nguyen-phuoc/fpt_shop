@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+.cart_body {
+  background-color: #fff;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.order .card {
+  position: relative;
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, .1)
+}
+
+small {
+  font-size: 12px
+}
+
+.cart {
+  line-height: 1
+}
+
+.order-item {
+  font-size: 15px;
+}
+
+.icon {
+  background-color: #eee;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%
+}
+
+.pic {
+  width: 70px;
+  height: 90px;
+  border-radius: 5px
+}
+
+td {
+  vertical-align: middle
+}
+
+
+
+.pe-3 {
+  padding: 0 20px;
+}
+
+.red {
+  color: #fd1c1c;
+  font-weight: 600
+}
+
+.b-bottom {
+  border-bottom: 2px dotted black;
+  padding-bottom: 20px
+}
+
+p {
+  margin: 0px
+}
+
+table input {
+  width: 40px;
+  border: 1px solid #eee
+}
+
+input:focus {border: 1px solid #eee;
+  outline: none
+}
+
+.round {
+  background-color: #eee;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.payment-summary .unregistered {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  text-transform: uppercase;
+  font-size: 14px
+}
+
+.payment-summary input {
+  width: 100%;
+  margin-right: 20px
+}
+
+.payment-summary .sale {
+  width: 100%;
+  background-color: #e9b3b3;
+  text-transform: uppercase;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5PX 0
+}
+
+.red {
+  color: #fd1c1c
+}
+
+.del {
+  width: 35px;
+  height: 35px;
+  object-fit: cover
+}
+
+.form-check {
+  padding-left: 10px;
+}

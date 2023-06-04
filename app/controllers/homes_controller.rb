@@ -1,7 +1,11 @@
 class HomesController < ApplicationController
   before_action :init_order, only: :search
+
   def index
-    @categories = Category.all.limit(12)
+    @categories_0 = Category.limit(12).product
+
+    @categories_1 = Category.limit(14).accessory
+
     @products = Product.order(sell_number: :desc).limit(4)
 
     @sale_products = Category.first.products.limit(8)
@@ -9,17 +13,20 @@ class HomesController < ApplicationController
     @sale_2_products = Category.find(2).products.limit(8)
 
     @sale_3_products = Category.find(3).products.limit(4)
-
-    @accessories = Accessory.all.limit(16)
   end
 
   def search
-    @products = Product.all
+    @products = Product.select(:id, :category_id, :manufacture_id, :name, :price, :sell_number, :quantity)
+
+    @accessories = Accessory.select(:id, :category_id, :manufacture_id, :name, :price, :sell_number, :quantity)
+
+    @itemables = @products.union(@accessories)
+
     @configurations = ::Configuration.all
 
-    @products = @products.where(manufacture_id: params[:manufactures]) if params[:manufactures]
+    @itemables = @itemables.where(manufacture_id: params[:manufactures]) if params[:manufactures]
 
-    @products = @products.joins(:configuration).where(configuration: { screens: params[:screens] }) if params[:screens]
+    @itemables = @itemables.joins(:configuration).where(configuration: { screens: params[:screens] }) if params[:screens]
 
     if params[:prices]
 
@@ -42,18 +49,22 @@ class HomesController < ApplicationController
         sql_query += "(#{first_query} #{and_query} #{last_query})"
       end
 
-      @products = @products.where(sql_query)
+      @itemables = @itemables.where(sql_query)
     end
 
     if params[:key].present?
-      @products = @products.includes(:manufacture, :category).where('LOWER(name) LIKE LOWER(?)', "%#{params[:key]}%")
+      @itemables = @itemables.includes(:manufacture, :category).where('LOWER(name) LIKE LOWER(?)', "%#{params[:key]}%")
     end
 
-    @products = @products.order("price #{params[:price_order]}")
+    @itemables = @itemables.order("price #{params[:price_order]}")
 
-    @products = @products.page(params[:page]).per(9)
+    @itemables = @itemables.page(params[:page]).per(9)
 
     @manufactures = Manufacture.all
+  end
+
+  def account
+
   end
 
   private

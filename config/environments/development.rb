@@ -63,6 +63,8 @@ Rails.application.configure do
 
   config.filter_redirect << 'https://google.com'
 
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 

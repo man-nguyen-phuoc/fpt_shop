@@ -1,0 +1,135 @@
+<%= form_with model: @user, method: :put do |f| %>
+  <div class="row" id="profile">
+    <div class="col-3  text-center">
+      <div class="panel rounded">
+        <div class="panel-body">
+          <div class="inner-all">
+            <div class="card-body text-center">
+              <%= image_tag @user.thumbnail, class: 'rounded-circle img-fluid', width: '150' %>
+            <h5 class="my-3"><%= @user.name %></h5>
+            <%= f.file_field :avatar%>
+            <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 ">
+        <div class="row">
+          <div class="">
+            <div class="profile-user">
+              <div class="profile-cover">
+                <div class="">
+                  <h4 class="pr-name">Profile</h4>
+                </div>
+                <div class="">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <p class="mb-0">Full Name :</p>
+                        </div>
+                        <div class="col-sm-9">
+                          <%= f.text_field :name, value: @user.name , class: 'form-control text-muted'%>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <p class="mb-0">Email :</p>
+                        </div>
+                        <div class="col-sm-9">
+                          <%= f.text_field :email, value: @user.email, class: 'form-control text-muted' %>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <p class="mb-0">Phone :</p>
+                        </div>
+                        <div class="col-sm-9 d-flex">
+                          <%= f.text_field :area_code, value: @user.area_code, class: 'form-control text-muted' %>
+                          <%= f.text_field :phone_number, value: @user.phone_number, class: 'form-control text-muted' %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+                <div class="shiping-address-user">
+              <div class="profile-cover">
+                <div class="">
+                  <h4 class="pr-name">Shiping address</h4>
+                </div>
+                <div class="">
+                  <%= fields_for :shipping_address do |ff| %>
+                    <div class="card mb-4">
+                      <div class="card-body">
+                      <div class="row">
+                          <div class="col-sm-3">
+                            <p class="mb-0">Receiver Name :</p>
+                          </div>
+                          <div class="col-sm-9">
+                            <%= ff.text_field :receiver_name, value: @shipping_address&.receiver_name, class: 'form-control text-muted' %>
+                          </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <p class="mb-0">Receiver Phone :</p>
+                          </div>
+                          <div class="col-sm-9">
+                            <%= ff.text_field :receiver_phone_number, value: @shipping_address&.receiver_phone_number, class: 'form-control text-muted' %>
+                          </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <p class="mb-0">City :</p>
+                          </div>
+                          <div class="col-sm-9">
+                            <%= ff.text_field :city, value: @shipping_address&.city, class: 'form-control text-muted' %>
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <p class="mb-0">District :</p>
+                          </div>
+                          <div class="col-sm-9">
+                            <%= ff.text_field :district, value: @shipping_address&.district, class: 'form-control text-muted' %>
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <p class="mb-0">Address :</p>
+                          </div>
+                          <div class="col-sm-9">
+                            <%= ff.text_field :address, value: @shipping_address&.address, class: 'form-control text-muted' %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <%= f.submit 'Update', class: 'btn btn-primary profile-submit'%>
+        </div>
+    </div>
+    <div class="col-3 profile-contact ">
+          <ul class="list-group no-margin">
+            <li class="list-group-item"><i class="fa fa-envelope mr-5"></i> support@bootdey.com</li>
+            <li class="list-group-item"><i class="fa fa-globe mr-5"></i> www.bootdey.com</li>
+            <li class="list-group-item"><i class="fa fa-phone mr-5"></i> +6281 903 xxx xxx</li>
+          </ul>
+    </div>
+  </div>
+<% end %>

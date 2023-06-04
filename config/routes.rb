@@ -19,7 +19,9 @@ Rails.application.routes.draw do
 
   resources :categories do
     resources :products
+    resources :accessories
   end
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -29,6 +31,37 @@ Rails.application.routes.draw do
   resources :homes do
     collection do
       get 'search'
+      get 'payment'
+    end
+  end
+
+  resources :orders
+
+  resources :order_details do
+    collection do
+      post 'filter'
+    end
+  end
+
+  resources :order_detail_items
+
+  resources :carts
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+
+  resources :users do
+    resources :orders
+    resources :carts do
+      collection do
+        post 'filter'
+      end
+    end
+
+    collection do
+      get 'input'
     end
   end
 end

@@ -30,4 +30,12 @@ class ApplicationController < ActionController::Base
   # def render_404
   #   render file: "#{Rails.root}/public/404.html", status: :not_found
   # end
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up)
+  end
 end
