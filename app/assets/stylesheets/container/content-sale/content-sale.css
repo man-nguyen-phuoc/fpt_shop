@@ -4,6 +4,7 @@
   background-color: #fff;
   border-radius: 5px;
 }
+
 .content-sale .prd-sale h2 {
   font-family: serif;
   font-weight: 600;
@@ -11,6 +12,7 @@
   color: #cd1817;
   margin: 0px;
 }
+
 .content-sale .product-sale {
   padding-top: 12px;
   border-radius: 5px;
@@ -25,15 +27,18 @@
 .content-sale .product-sale .product-img a span {
   text-align: center;
 }
+
 .content-sale .product-sale .product-img a span img {
   transition: all 0.5s;
   max-width: 50%;
   padding-top: 30px;
 }
+
 .content-sale .product-sale .product-img .product-label {
   position: absolute;
   top: 140px;
 }
+
 .content-sale .product-sale .product-img .product-label span {
   border-radius: 0px 5px 5px 0px;
   font-size: 13px;
@@ -42,31 +47,39 @@
   display: flex;
   padding: 0px 8px;
 }
+
 .content-sale .product-sale .product-img .product-label .product-label1 {
   background-color: #ea9d02;
   color: #fff;
 }
+
 .content-sale .product-sale .product-img .product-label .product-label2 {
   background-color: #cb1c22;
   color: #fff;
 }
+
 .content-sale .product-sale div a span:hover img {
   transform: scale(1.1);
 }
+
 .content-sale .product-sale .cdt-product-info a {
   text-decoration: none;
   color: #474c51;
 }
+
 .content-sale .product-sale .cdt-product-info a:hover {
   color: #0d6dfd;
 }
+
 .content-sale .product-sale .cdt-product-info .cdt-product-name {
   margin-bottom: 10px;
 }
+
 .content-sale .product-sale .cdt-product-info .cdt-product_show-promo {
   justify-content: space-between;
   display: flex;
 }
+
 .content-sale .product-sale .cdt-product-info .cdt-product_show-promo .progress {
   width: 135px;
   height: 28px;
@@ -80,9 +93,11 @@
   z-index: 1;
   margin: 10px 0px 10px;
 }
+
 .content-sale .product-sale .cdt-product-info .cdt-product_show-promo .progress p {
   padding-left: 7px;
 }
+
 .content-sale .product-sale .cdt-product-info .cdt-product_show-promo .progress .progress-bar {
   width: 67%;
   background-color: #cb1c22;
@@ -91,29 +106,35 @@
   top: 0;
   bottom: 0;
 }
+
 .content-sale .product-sale .cdt-product-info .cdt-product_show-promo .strike-price {
   font-size: 14px;
   line-height: 15px;
   color: #919191;
 }
+
 .content-sale .product-sale .cdt-product-info .cdt-product_show-promo .strike-price p {
   padding-top: 15px;
   margin-bottom: 0px;
   text-decoration: line-through;
 }
+
 .content-sale .product-sale .cdt-product-info .cdt-product__config {
   background-color: #f8f9fa;
   border-radius: 5px;
   padding: 9px 10px 0px;
 }
+
 .content-sale .product-sale .cdt-product-info .cdt-product__config .cdt-product__img-promo ul li button {
   margin-right: 10px;
   padding: 0px;
   border-radius: 50%;
 }
+
 .content-sale .product-sale .cdt-product-info .cdt-product__config .cdt-product__img-promo ul li button img {
   border-radius: 50%;
 }
+
 .content-sale .product-sale .cdt-product-info .cdt-product__config .cdt-product__img-promo #pills-tabContent .tab-pane p {
   width: 100%;
   font-size: 13px;
@@ -127,9 +148,11 @@
   margin-bottom: 0px;
   padding: 10px 0px;
 }
+
 .content-sale .product-sale .cdt-product-info .cdt-product__config .cdt-product_config_param {
   padding-bottom: 10px;
 }
+
 .content-sale .product-sale .cdt-product-info .cdt-product__config .cdt-product_config_param span {
   cursor: help;
   margin: 0px 10px 10px 0px;
@@ -137,9 +160,11 @@
   line-height: 19px;
   color: #6c757d;
 }
+
 .content-sale .product-sale .cdt-product-info .cdt-product__config .cdt-product__text-promo {
   height: 30px;
 }
+
 .content-sale .product-sale:hover {
   box-shadow: 0 0 10px 5px #dee2e6;
-}/*# sourceMappingURL=content-sale.css.map */
+}

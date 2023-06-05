@@ -9,9 +9,11 @@ class UsersController < ApplicationController
   def update
     current_user.update(user_params)
 
-    shipping_address = ShippingAddress.find_or_initialize_by(user_id: current_user.id)
-    shipping_address.assign_attributes(shipping_address_params)
-    shipping_address.save!
+    if shipping_address_params
+      shipping_address = ShippingAddress.find_or_initialize_by(user_id: current_user.id)
+      shipping_address.assign_attributes(shipping_address_params)
+      shipping_address.save!
+    end
 
     redirect_to user_path(current_user)
   end

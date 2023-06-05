@@ -120,7 +120,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_03_054509) do
   end
 
   create_table "order_details", charset: "utf8mb3", force: :cascade do |t|
-    t.integer "total_price", null: false
+    t.integer "total_price", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

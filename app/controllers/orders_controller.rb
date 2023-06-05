@@ -9,9 +9,7 @@ class OrdersController < ApplicationController
 
     order = if params[:cart_id]
               # Tao order detail
-              order_detail = OrderDetail.create(
-                total_price: 0
-              )
+              order_detail = OrderDetail.create
 
               total_price = 0
 

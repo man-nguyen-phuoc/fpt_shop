@@ -2,6 +2,7 @@
   margin-bottom: 30px;
   padding: auto;
 }
+
 #product-list .product-item {
   height: 500px;
   width: 300px;
@@ -10,10 +11,12 @@
   background-color: #fff;
   border-radius: 5px;
 }
+
 #product-list .product-item .lazy-load-image {
   text-align: center;
 }
+
 #product-list .product-item .lazy-load-image > img {
   max-width: 50%;
   padding-top: 30px;
-}/*# sourceMappingURL=product-list.css.map */
+}

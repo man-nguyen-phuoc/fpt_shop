@@ -16,9 +16,11 @@ class OrderDetailsController < ApplicationController
 
   def create
     @order_detail_item = OrderDetailItem.find_by(id: params['/order_details'][:order_detail_item_id])
-    @order_detail_item.update(quantity: params['/order_details'][:quantity])
 
-    @order_detail_item.orderable.update(total_price: @order_detail_item.itemable.real_price * params['/order_details'][:quantity].to_i)
+    if @order_detail_item
+      @order_detail_item.update(quantity: params['/order_details'][:quantity])
+      @order_detail_item.orderable.update(total_price: @order_detail_item.itemable.real_price * params['/order_details'][:quantity].to_i)
+    end
 
     redirect_to order_details_path(request.parameters)
   end

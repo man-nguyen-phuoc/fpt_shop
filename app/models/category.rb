@@ -5,5 +5,5 @@ class Category < ApplicationRecord
 
   validates :name, length: { in: (6..20) }
 
-  enum category_type: [ :product, :accessory ]
+  enum category_type: %i[product accessory]
 end
