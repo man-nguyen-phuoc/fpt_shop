@@ -18,7 +18,8 @@ Manufacture.all.each do |manufacture|
         price: rand(1000000..10000000),
         quantity: rand(100..500),
         sell_number: rand(10..100),
-        thumbnail: Faker::Avatar.image
+        thumbnail: Faker::Avatar.image,
+        discount: rand(0..100)
       )
     end
 
@@ -72,18 +73,16 @@ User.all.each do |user|
     receiver_name: Faker::Name.name,
     receiver_phone_number: Faker::PhoneNumber.phone_number_with_country_code
   )
+
+  10.times do
+    Coupon.create(
+      code: Faker::Code.nric,
+      discount: rand(1..30),
+      quantity: rand(10..50),
+      price: rand(200000..1000000)
+    )
+  end
 end
 
 
-10.times do
-  OrderDetail.create(
-    total_price: rand(1000000..2000000)
-  )
-end
 
-User.all.each do |user|
-  Cart.create(
-    total_price: 0,
-    user_id: user.id
-  )
-end

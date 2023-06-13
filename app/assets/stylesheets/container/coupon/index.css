@@ -1,0 +1,28 @@
+
+.coupon_item {
+  padding: 20px;
+  margin: 10px;
+}
+
+.strike-text {
+  font-size: 20px;
+}
+
+.strike-number {
+  margin-bottom: 0px;
+  padding-left: 10px;
+  color: #cd1817;
+}
+
+.spec-1 {
+  color: #938787;
+  font-size: 15px
+}
+
+h5 {
+  font-weight: 400
+}
+
+.para {
+  font-size: 16px
+}

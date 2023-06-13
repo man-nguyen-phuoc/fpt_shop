@@ -35,7 +35,7 @@
           <p class="text-secondary mb-1">(Additional tax may apply on checkout)</p>
         </div>
         <div class="buttons d-flex my-5">
-          <%= form_tag user_carts_path(@user), method: :post do %>
+          <%= form_tag user_carts_path(current_user), method: :post do %>
             <%= hidden_field_tag :itemable_id, itemable.id %>
             <%= hidden_field_tag :itemable_type, itemable.class.name %>
             <div class="block">

@@ -2,6 +2,14 @@ class CartsController < ApplicationController
   def index
     @user = current_user
     @order_detail_items = @user.cart.order_detail_items
+
+    @coupons = Coupon.all.order(:price)
+
+    if params[:coupon_id]
+      @coupon = Coupon.find(params[:coupon_id])
+    elsif params[:coupon_code]
+      @coupon = Coupon.find_by(code: params[:coupon_code])
+    end
   end
 
   def create

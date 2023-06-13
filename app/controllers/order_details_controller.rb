@@ -1,6 +1,8 @@
 class OrderDetailsController < ApplicationController
   def index
     @user = current_user
+    @coupons = Coupon.all
+
     if params['/order_details'] && params['/order_details'][:order_detail_item_id]
       @order_detail_item = OrderDetailItem.find_by(id: params['/order_details'][:order_detail_item_id])
     else
@@ -11,6 +13,12 @@ class OrderDetailsController < ApplicationController
         itemable: @itemable,
         quantity: params[:quantity]
       )
+    end
+
+    if params[:coupon_id]
+      @coupon = Coupon.find(params[:coupon_id])
+    elsif params[:coupon_code]
+      @coupon = Coupon.find_by(code: params[:coupon_code])
     end
   end
 

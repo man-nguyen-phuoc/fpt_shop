@@ -1,18 +1,37 @@
  <div class="cdt-product_config_param">
   <span  title="CPU">
     <i class="fa-solid fa-microchip"></i>
-    <%= itemable.configuration.cpu%>
+    <% if itemable.class == Hash && itemable['type'] == 'Product' %>
+      <%= itemable['type'].constantize.find(itemable['id']).configuration.cpu%>
+    <% else %>
+      <%= itemable.configuration.cpu%>
+    <% end %>
   </span>
+
   <span title="screen">
     <i class="fa-solid fa-mobile-screen-button"></i>
-    <%= truncate(itemable.configuration.screens, length: 20)%>
+    <% if itemable.class == Hash && itemable['type'] == 'Product' %>
+      <%= itemable['type'].constantize.find(itemable['id']).configuration.screens.truncate(20) %>
+    <% else %>
+      <%= itemable.configuration.screens %>
+    <% end %>
   </span><br>
+
   <span title="RAM">
     <i class="fa-solid fa-microchip"></i>
-    <%= itemable.configuration.ram %> GB
+    <% if itemable.class == Hash && itemable['type'] == 'Product' %>
+      <%= itemable['type'].constantize.find(itemable['id']).configuration.ram %>
+    <% else %>
+      <%= itemable.configuration.ram %>
+    <% end %> GB
   </span>
+  
   <span title="internal memory">
     <i class="fa-solid fa-sim-card"></i>
-    <%= itemable.configuration.memory_in%>
+    <% if itemable.class == Hash && itemable['type'] == 'Product' %>
+      <%= itemable['type'].constantize.find(itemable['id']).configuration.memory_in %>
+    <% else %>
+      <%= itemable.configuration.memory_in %>
+    <% end %>
   </span>
 </div>

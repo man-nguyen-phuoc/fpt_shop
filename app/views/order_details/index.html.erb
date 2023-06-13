@@ -48,34 +48,99 @@
       </div>
     </div>
     <div class="col-lg-4 payment-summary">
-    <%= form_tag user_orders_path(@user), method: :post do%>
-      <%= hidden_field_tag :order_detail_id, @order_detail_item.orderable.id%>
       <p class="fw-bold pt-lg-0 pt-4 pb-2">Payment Summary</p>
       <div class="card px-md-3 px-2 pt-4">
-        <div class="unregistered mb-4"> <span class="py-1">unregistered account</span> </div>
+        <div class="unregistered mb-4">
+          <% if @user.shipping_address == nil%>
+            <div class="unregistered mb-4">
+              <span class="py-1">unregistered shipping address</span>
+              <%= link_to edit_user_path(@user), method: :get do %>
+              registered
+              <% end%>
+            </div>
+          <%end%>
+        </div>
         <div class="d-flex justify-content-between pb-3"> <small class="text-muted">Transaction code</small>
           <p class="">VC115665</p>
         </div>
-        <div class="d-flex justify-content-between b-bottom">
-          <input type="text" class="ps-2" placeholder="COUPON CODE">
-          <%= submit_tag "Order", class: "btn btn-primary"%>
-        </div>
-        <div class="d-flex flex-column b-bottom">
-          <div class="d-flex justify-content-between py-3"> <small class="text-muted">Order Summary</small>
+        <%= form_tag order_details_path(@user), method: :get do %>
+          <div class="">
+            <% if @coupon %>
+              <%= text_field_tag :coupon_code, @coupon.code%>
+            <% else %>
+              <%= text_field_tag :coupon_code %>
+            <% end %>
+          </div>
+          <div class='d-flex justify-content-between pt-2'>
+            <%= submit_tag "Checking", class: 'coupon-md'%>
+            <!-- trigger modal -->
+            <a type="button" class="coupon-md" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Coupons
+            </a>
+          </div>
+        <% end %>
+        <%= form_tag user_orders_path(@user), method: :post do%>
+        <% hidden_field_tag 'cart_id' %>
+        <div class="d-flex flex-column">
+          <div class="d-flex justify-content-between pt-3"> <small class="text-muted">Order Summary:</small>
             <p>
-              <%= currency_to_number(order_summary(itemable, @order_detail_item.quantity)) %>
+              <%= currency_to_number(@order_detail_item.total_price)%>
             </p>
           </div>
-          <div class="d-flex justify-content-between pb-3"> <small class="text-muted">Additional Service</small>
-            <p><%= currency_to_number(20_000) %></p>
+          <div class="d-flex justify-content-between"> <small class="text-muted">Shipping fee:</small>
+            <p>
+              <%= currency_to_number(20_000)%>
+            </p>
           </div>
-          <div class="d-flex justify-content-between"> <small class="text-muted">Total Amount</small>
-            <p><%= currency_to_number(order_summary(itemable, @order_detail_item.quantity) + 20_000) %></p>
+          <div class="d-flex justify-content-between b-bottom pb-1"> <small class="text-muted">Discount:</small>
+            <p>
+              <%= currency_to_number(@coupon&.price)%>
+            </p>
+          </div>
+          <div class="d-flex justify-content-between pt-3 pb-3"> <small class="text-muted">Total Amount:</small>
+            <h5 class='strike-md-code'>
+              <%= currency_to_number(order_summary_coupon(@order_detail_item, @coupon) + 20_000)%>
+            </h5>
           </div>
         </div>
-        <div class="sale my-3"> <span>sale<span class="px-1">expiring</span><span>in</span>:</span><span class="red">21<span class="ps-1">hours</span>,31<span class="ps-1 ">minutes</span></span> </div>
+          <%= submit_tag "Order", class: "btn btn-primary order-cart"%>
+        </div>
+      <% end %>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Coupons</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%- @coupons.each do |coupon| %>
+              <%= form_with url: order_details_path(@user), method: :get do |form|%>
+                <%= form.hidden_field :coupon_id, value: coupon.id %>
+                <div class="row p-2 border rounded coupon-md-item mb-1">
+                  <div class="col-md-8 mt-1">
+                    <div class='d-flex'>
+                      <h6>CODE:</h6>
+                      <h6 class='strike-md-code'><%= coupon.code %></h6>
+                    </div>
+                    <div class="d-flex">
+                      <span class='strike-text'>Discount: </span>
+                      <b class="mr-1 strike-md-number"><%= currency_to_number(coupon.price)%></b>
+                    </div>
+                  </div>
+                  <div class="align-items-center align-content-center col-md-4 border-left mt-1">
+                    <div class="d-flex flex-column mt-4">
+                      <%= form.submit 'Use', class: 'btn btn-primary btn-sm mt-2'%>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
-    <% end %>
     </div>
   </div>
 </div>

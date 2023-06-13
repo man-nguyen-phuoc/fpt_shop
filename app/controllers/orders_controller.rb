@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :update_shipping_address, only: [:create]
+
   def index
     @user = current_user
     @orders = Order.all.order(created_at: :desc)
@@ -7,8 +9,15 @@ class OrdersController < ApplicationController
   def create
     user = current_user
 
+    if params[:coupon_id]
+      coupon = Coupon.find(params[:coupon_id])
+    elsif params[:coupon_code]
+      coupon = Coupon.find_by(code: params[:coupon_code])
+    end
+    
+    # 
     order = if params[:cart_id]
-              # Tao order detail
+            # Tao order detail
               order_detail = OrderDetail.create
 
               total_price = 0
@@ -22,15 +31,18 @@ class OrdersController < ApplicationController
                 total_price += item.itemable.real_price * item.quantity
               end
 
-              order_detail.update!(total_price: total_price)
+              total_price = total_price - coupon.price
 
-              Order.create(
-                user_id: user.id,
-                shipping_address_id: user.shipping_address.id,
-                order_key: Faker::Code.asin,
-                order_detail: order_detail,
-                status: 'Verifying'
-              )
+              order_detail = order_detail.update(total_price: total_price)
+
+              order = Order.new(
+                        user_id: user.id,
+                        shipping_address_id: user.shipping_address.id,
+                        order_key: Faker::Code.asin,
+                        order_detail: order_detail,
+                        status: 'Verifying'
+                      )
+              order.save
               # Doi tat ca order detail item sang order detail
               # Tao order cho order detail tren
             else
@@ -58,5 +70,18 @@ class OrdersController < ApplicationController
     @shipping_address = @user.shipping_address
 
     @order_detail_items = @order_detail.order_detail_items
+  end
+
+  def placed
+    @user = current_user
+  end
+
+  def big_sale
+  end
+
+  private
+
+  def update_shipping_address
+    redirect_to edit_user_path(current_user) if current_user.shipping_address == nil
   end
 end

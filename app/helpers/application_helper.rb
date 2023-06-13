@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def detail_itemable(itemable)
-    category = itemable.category
+    category = itemable['category_id']
 
     case itemable.class.name
     when 'Product'

@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :orders
   has_one :cart
   has_one_attached :avatar
+  has_and_belongs_to_many :coupons
   devise :database_authenticatable, :registerable, :recoverable, stretches: 13
 
   after_create :initialize_cart

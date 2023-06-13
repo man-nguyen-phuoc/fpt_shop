@@ -1,5 +1,6 @@
 #header .navbar {
   padding: 0px;
+  z-index: -1;
 }
 
 #header .hd-menu {

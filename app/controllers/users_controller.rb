@@ -30,4 +30,5 @@ class UsersController < ApplicationController
   def shipping_address_params
     params.require(:shipping_address).permit(:receiver_name, :receiver_phone_number, :city, :district, :address)
   end
+
 end

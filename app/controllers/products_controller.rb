@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
 
   def show
     @products = @category.products.page(params[:page]).per(8)
-    @user = User.first
+    @user = current_user
   end
 
   def edit

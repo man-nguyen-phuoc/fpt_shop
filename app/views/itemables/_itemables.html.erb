@@ -1,27 +1,36 @@
 <div class="product-sale <%= class_name %> filter-product">
   <div class="product-img">
-    <%= render 'itemables/image_tag', itemable: itemable, category: itemable.category, detail_url: detail_itemable(itemable) %>
+    <% if itemable.class == Product || itemable.class == Accessory%>
+      <%= render 'itemables/image_tag', itemable: itemable, category: itemable['category'], detail_url: detail_itemable(itemable) %>
+    <% else %>
+      <%= render 'itemables/image_tag', itemable: itemable, category: itemable['category'], detail_url: detail_itemable(itemable['type'].constantize.find(itemable['id'])) %>
+    <% end %>
     <div class="product-label">
-      <span class="product-label1">Sell numbers <%= itemable.sell_number%></span>
-      <span class="product-label2">Discount <%= itemable.discount %> %</span>
+      <span class="product-label1">Sell numbers <%= itemable['sell_number']%></span>
+      <span class="product-label2">Discount <%= itemable['discount'] %> %</span>
     </div>
   </div>
   <div class="cdt-product-info">
-    <a href="#" class="cdt-product-name"><b><%= itemable.name %></b></a>
+    <a href="#" class="cdt-product-name"><b><%= itemable['name'] %></b></a>
     <div class="cdt-product_show-promo">
       <div class="progress">
-        <p><%= currency_to_number(itemable.real_price) %></p>
+        <% if itemable.class == Hash %>
+          <p><%= currency_to_number(itemable['type'].constantize.find(itemable['id']).real_price) %></p>
+        <% else %>
+          <p><%= currency_to_number(itemable.real_price) %></p>
+        <% end %>
         <div class="progress-bar"></div>
       </div>
       <div class="strike-price">
-        <p><%= currency_to_number(itemable.price) %></p>
-        <div class="cd">
-
-        </div>
+        <p><%= currency_to_number(itemable['price']) %></p>
       </div>
     </div>
     <div class="cdt-product__config">
-      <%- if itemable.class == Product %>
+      <%- if itemable['type'] == 'Product' %>
+        <%= render 'itemables/products/show_configuration', itemable: itemable %>
+      <%- elsif itemable['type'] == 'Accessory' %>
+        <%= render 'itemables/accessories/show_configuration', itemable: itemable %>
+      <%- elsif itemable.class == Product %>
         <%= render 'itemables/products/show_configuration', itemable: itemable %>
       <%- elsif itemable.class == Accessory %>
         <%= render 'itemables/accessories/show_configuration', itemable: itemable %>

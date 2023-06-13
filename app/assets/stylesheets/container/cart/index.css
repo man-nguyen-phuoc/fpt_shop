@@ -121,3 +121,64 @@ input:focus {border: 1px solid #eee;
 .form-check {
   padding-left: 10px;
 }
+
+.coupon-md {
+  border: none;
+  width: 100px !important;
+  text-decoration: none;
+  font-size: 20px;
+  background-image: linear-gradient(
+    to right,
+    #fd1c1c,
+    #54b3d6 50%,
+    #73cdee 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.4s ease-in-out;
+}
+
+.coupon-md:before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+}
+
+.coupon-md:hover {
+  background-position: 0;
+}
+
+.coupon-md:hover::before {
+  width: 100%;
+}
+
+.modal-body {
+  padding-bottom: 0px !important;
+}
+
+.coupon-md-item {
+  background-color: #e9b3b3;
+}
+
+.strike-md-code {
+  font-weight: 600;
+  padding-left: 10px;
+  color: #fd1c1c;
+}
+
+.strike-md-number {
+  line-height: 32px;
+  padding-left: 10px;
+}
+
+.order-cart {
+  width: 100% !important;
+  margin-bottom: 20px !important;
+}
+

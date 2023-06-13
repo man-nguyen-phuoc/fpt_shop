@@ -39,7 +39,7 @@ Rails.application.routes.draw do
 
   resources :order_details do
     collection do
-      post 'filter'
+      get 'coupon'
     end
   end
 
@@ -47,13 +47,21 @@ Rails.application.routes.draw do
 
   resources :carts
 
+  resources :coupons
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
 
   resources :users do
-    resources :orders
+    resources :orders do
+      collection do
+        get 'placed'
+        get 'big_sale'
+      end
+    end
+
     resources :carts do
       collection do
         post 'filter'
