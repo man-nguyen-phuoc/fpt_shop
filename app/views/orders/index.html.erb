@@ -3,11 +3,11 @@
       <div class="my-lg-0 my-1">
         <div id="main-content" class="bg-white border">
           <div class="d-flex flex-column">
-            <div class="h5"><%= @user.name %></div>
-            <div>Logged in as: <%= @user.email%></div>
+            <div class="h5"><%= current_user.name %></div>
+            <div>Logged in as: <%= current_user.email%></div>
           </div>
             <div class="d-flex my-4 flex-wrap">
-              <%= link_to placed_user_orders_path(@user), class: 'order_item' do %>
+              <%= link_to placed_orders_path, class: 'order_item' do %>
                 <div class="box me-4 my-1 bg-light">
                   <img src="https://www.freepnglogos.com/uploads/box-png/cardboard-box-brown-vector-graphic-pixabay-2.png"
                       alt="">
@@ -38,7 +38,6 @@
             </div>
             <div class="text-uppercase">My recent orders</div>
             <%- @orders.each do |order| %>
-              <%= form_tag user_order_path(@user, order), method: :get do %>
                 <div class="order my-3 bg-light">
                   <div class="row">
                     <div class="col-lg-4">
@@ -63,7 +62,9 @@
                     <div class="col-lg-8">
                       <div class="d-sm-flex align-items-sm-start justify-content-sm-between">
                         <div class="status">Status : <%= order.status%></div>
-                        <%= submit_tag 'ORDER INFO', class: 'btn btn-primary text-uppercase'%>
+                        <%= link_to order_path(order) do %>
+                          <%= submit_tag 'ORDER INFO', class: 'btn btn-primary text-uppercase'%>
+                        <% end %>
                       </div>
                       <div class="progressbar-track">
                         <ul class="progressbar">
@@ -88,7 +89,6 @@
                     </div>
                   </div>
                 </div>
-              <% end %>
             <% end %>
         </div>
       </div>

@@ -1,4 +1,6 @@
 class CartsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @user = current_user
     @order_detail_items = @user.cart.order_detail_items
@@ -13,8 +15,7 @@ class CartsController < ApplicationController
   end
 
   def create
-    user = current_user
-    cart = Cart.find_by(user_id: user.id)
+    cart = Cart.find_by(user_id: current_user.id)
 
     itemable = params[:itemable_type].constantize.find_by(id: params[:itemable_id])
 
@@ -30,7 +31,7 @@ class CartsController < ApplicationController
         )
       end
 
-      redirect_to user_carts_path(user)
+      redirect_to carts_path
     else
       redirect_back
     end

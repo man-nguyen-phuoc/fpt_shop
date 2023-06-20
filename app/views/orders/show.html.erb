@@ -2,7 +2,7 @@
       <div class="">
         <div class="card" style="border-radius: 10px;">
           <div class="card-header px-4 py-5">
-            <h5 class="text-muted mb-0">Thanks for your Order, <span style="color: #a8729a;"><%= @user.name %></span>!</h5>
+            <h5 class="text-muted mb-0">Thanks for your Order, <span style="color: #a8729a;"><%= current_user.name %></span>!</h5>
           </div>
           <div class="card-body p-4">
             <div class="d-flex justify-content-between align-items-center mb-4">
@@ -41,14 +41,18 @@
 
             <div class="d-flex justify-content-between pt-2">
               <p class="fw-bold mb-0">Delivery information</p>
+              <p class="fw-bold mb-0">Extra service</p>
             </div>
 
             <div class="d-flex justify-content-between pt-2">
-              <p class="text-muted mb-0">Phone number: <%= @user.area_code %>+ <%= @user.phone_number.to_fs(:phone, delimiter: " ") %></p>
+              <% coupon = Coupon.find(@order_detail.coupon_id) %>
+              <p class="text-muted mb-0">Phone number: <%= current_user.area_code %>+ <%= current_user.phone_number.to_fs(:phone, delimiter: " ") %></p>
+              <p class="text-muted mb-0">Coupon: <%= currency_to_number(coupon.price) %></p>
             </div>
 
             <div class="d-flex justify-content-between">
               <p class="text-muted mb-0">Recepits Voucher : 18KU-62IIK</p>
+              <p class="text-muted mb-0">Shipping fee : <%= currency_to_number(20_000)%></p>
             </div>
 
             <div class="d-flex justify-content-between">

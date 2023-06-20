@@ -1,14 +1,12 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   before_action :update_shipping_address, only: [:create]
 
   def index
-    @user = current_user
-    @orders = Order.all.order(created_at: :desc)
+    @orders = current_user.orders.order(created_at: :desc)
   end
 
   def create
-    user = current_user
-
     if params[:coupon_id]
       coupon = Coupon.find(params[:coupon_id])
     elsif params[:coupon_code]
@@ -31,32 +29,32 @@ class OrdersController < ApplicationController
                 total_price += item.itemable.real_price * item.quantity
               end
 
-              total_price = total_price - coupon.price
+              total_price = total_price - coupon.price if coupon
 
-              order_detail = order_detail.update(total_price: total_price)
+              order_detail.update(total_price: total_price)
 
-              order = Order.new(
-                        user_id: user.id,
-                        shipping_address_id: user.shipping_address.id,
-                        order_key: Faker::Code.asin,
-                        order_detail: order_detail,
-                        status: 'Verifying'
-                      )
-              order.save
+              Order.create(
+                user_id: current_user.id,
+                shipping_address_id: current_user.shipping_address.id,
+                order_key: Faker::Code.asin,
+                order_detail: order_detail,
+                status: 'Verifying'
+              )
+
               # Doi tat ca order detail item sang order detail
               # Tao order cho order detail tren
             else
-              Order.create(
-                user_id: user.id,
+              Order.create!(
+                user_id: current_user.id,
                 order_detail_id: params[:order_detail_id],
-                shipping_address_id: user.shipping_address.id,
+                shipping_address_id: current_user.shipping_address.id,
                 order_key: Faker::Code.asin,
                 status: 'Verifying'
               )
             end
 
     if order
-      redirect_to user_orders_path(user)
+      redirect_to orders_path
     else
       redirect_back fallback_location: order_details_path
     end
@@ -64,19 +62,13 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find_by(id: params[:id])
-    @user = current_user
-
     @order_detail = @order.order_detail
-    @shipping_address = @user.shipping_address
+    @shipping_address = current_user.shipping_address
 
     @order_detail_items = @order_detail.order_detail_items
   end
 
   def placed
-    @user = current_user
-  end
-
-  def big_sale
   end
 
   private

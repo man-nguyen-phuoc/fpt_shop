@@ -3,11 +3,11 @@
   z-index: -1;
 }
 
-#header .hd-menu {
+.hd-menu {
   background-color: #000;
 }
 
-#header .hd-menu .hd-wrap {
+.hd-wrap {
   width: 1300px;
   margin: 0px auto;
   z-index: 9999;
@@ -15,7 +15,7 @@
   border-radius: 5px;
 }
 
-#header .hd-menu .hd-wrap .hd-list-menu {
+.hd-list-menu {
   display: inline-flex;
   text-align: center;
   padding: 0;
@@ -24,7 +24,7 @@
   width: 100%;
 }
 
-#header .hd-menu .hd-wrap .hd-list-menu li {
+.hd-list-menu li {
   flex: auto;
   width: 100%;
   margin-right: 16px;

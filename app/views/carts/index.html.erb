@@ -76,8 +76,8 @@
             </a>
           </div>
         <% end %>
-      <%= form_tag user_orders_path(@user), method: :post do%>
-        <%= hidden_field_tag :cart_id, @user.cart.id %>
+      <%= form_tag orders_path, method: :post do%>
+        <%= hidden_field_tag :cart_id %>
         <% if params[:coupon_id]%>
           <%= hidden_field_tag :coupon_id, params[:coupon_id]%>
         <% elsif params[:coupon_code]%>
@@ -101,7 +101,7 @@
           </div>
           <div class="d-flex justify-content-between pt-3 pb-3"> <small class="text-muted">Total Amount:</small>
             <h5 class='strike-md-code'>
-              <%= currency_to_number(cart_summary_coupon(@order_detail_items, @coupon) + 20_000)%>
+              <%= currency_to_number(cart_summary_coupon(@order_detail_items, @coupon))%>
             </h5>
           </div>
         </div>
@@ -119,7 +119,7 @@
           </div>
           <div class="modal-body">
             <%- @coupons.each do |coupon| %>
-              <%= form_with url: user_carts_path(@user), method: :get do |form|%>
+              <%= form_with url: carts_path, method: :get do |form|%>
                   <%= form.hidden_field :coupon_id, value: coupon.id %>
                 <div class="row p-2 border rounded coupon-md-item mb-1">
                   <div class="col-md-8 mt-1">

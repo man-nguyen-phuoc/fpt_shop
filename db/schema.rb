@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_09_035412) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_18_180424) do
   create_table "accessories", charset: "utf8mb3", force: :cascade do |t|
     t.integer "category_id", null: false
     t.integer "manufacture_id", null: false
@@ -18,11 +18,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_035412) do
     t.decimal "price", precision: 10, null: false
     t.integer "quantity", null: false
     t.string "thumbnail", null: false
-    t.integer "sell_number"
-    t.string "feature"
-    t.integer "discount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sell_number"
+    t.integer "discount"
     t.index ["name"], name: "index_accessories_on_name"
   end
 
@@ -143,6 +142,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_035412) do
     t.integer "total_price", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "coupon_id"
   end
 
   create_table "orders", charset: "utf8mb3", force: :cascade do |t|

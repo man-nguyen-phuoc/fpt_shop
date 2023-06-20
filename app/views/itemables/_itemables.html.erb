@@ -1,4 +1,4 @@
-<div class="product-sale <%= class_name %> filter-product">
+<div class="product-sale <%= class_name %>">
   <div class="product-img">
     <% if itemable.class == Product || itemable.class == Accessory%>
       <%= render 'itemables/image_tag', itemable: itemable, category: itemable['category'], detail_url: detail_itemable(itemable) %>
@@ -69,5 +69,8 @@
         </div>
       </div>
     </div>
+  </div>
+  <div>
+    <button type="button" class="itemable-sm btn btn-outline-primary ">Primary</button>
   </div>
 </div>

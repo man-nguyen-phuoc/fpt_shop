@@ -133,7 +133,7 @@
               <picture class="picture">
                 <%= image_tag category.thumbnail %>
               </picture>
-              <div class="cate-item-name"><%= category.name%></div>
+              <div class="cate-item-name"><%= truncate(category.name, length: 15)%></div>
             </div>
           <% end %>
         </div>

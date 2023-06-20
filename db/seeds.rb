@@ -73,15 +73,15 @@ User.all.each do |user|
     receiver_name: Faker::Name.name,
     receiver_phone_number: Faker::PhoneNumber.phone_number_with_country_code
   )
+end
 
-  10.times do
-    Coupon.create(
-      code: Faker::Code.nric,
-      discount: rand(1..30),
-      quantity: rand(10..50),
-      price: rand(200000..1000000)
-    )
-  end
+10.times do
+  Coupon.create(
+    code: Faker::Code.nric,
+    discount: rand(1..30),
+    quantity: rand(10..50),
+    price: rand(200000..1000000)
+  )
 end
 
 

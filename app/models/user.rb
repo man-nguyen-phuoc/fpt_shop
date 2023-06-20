@@ -9,11 +9,11 @@ class User < ApplicationRecord
   after_create :initialize_cart
   before_create :random_name
 
-  def thumbnail
-    return avatar.url if avatar.attached?
+  # def thumbnail
+  #   return avatar.url if avatar.attached?
 
-    'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp'
-  end
+  #   'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp'
+  # end
 
   private
 

@@ -5,14 +5,6 @@ Rails.application.routes.draw do
 
       resources :products do
         resource :configuration
-
-        # member do
-        #   get :hide
-        # end
-
-        # collection do
-        #   get :block
-        # end
       end
     end
   end
@@ -22,10 +14,6 @@ Rails.application.routes.draw do
     resources :accessories
   end
 
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
   root "homes#index"
 
   resources :homes do
@@ -35,7 +23,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders
+  resources :orders do
+    collection do
+      get 'placed'
+    end
+  end
 
   resources :order_details do
     collection do
@@ -55,21 +47,10 @@ Rails.application.routes.draw do
   }
 
   resources :users do
-    resources :orders do
-      collection do
-        get 'placed'
-        get 'big_sale'
-      end
-    end
-
     resources :carts do
       collection do
         post 'filter'
       end
-    end
-
-    collection do
-      get 'input'
     end
   end
 end
