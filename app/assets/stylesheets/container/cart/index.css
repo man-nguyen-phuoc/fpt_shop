@@ -124,7 +124,7 @@ input:focus {border: 1px solid #eee;
 
 .coupon-md {
   border: none;
-  width: 100px !important;
+  width: 120px !important;
   text-decoration: none;
   font-size: 20px;
   background-image: linear-gradient(
@@ -180,5 +180,14 @@ input:focus {border: 1px solid #eee;
 .order-cart {
   width: 100% !important;
   margin-bottom: 20px !important;
+}
+
+.all__coupons {
+  text-decoration: none;
+  float: right;
+}
+
+.all__coupons p {
+  margin-right: 24px;
 }
 

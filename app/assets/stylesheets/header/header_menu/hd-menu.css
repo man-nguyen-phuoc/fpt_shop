@@ -3,11 +3,11 @@
   z-index: -1;
 }
 
-.hd-menu {
+#header .hd-menu {
   background-color: #000;
 }
 
-.hd-wrap {
+#header .hd-menu .hd-wrap {
   width: 1300px;
   margin: 0px auto;
   z-index: 9999;
@@ -15,7 +15,7 @@
   border-radius: 5px;
 }
 
-.hd-list-menu {
+#header .hd-menu .hd-wrap .hd-list-menu {
   display: inline-flex;
   text-align: center;
   padding: 0;
@@ -24,7 +24,7 @@
   width: 100%;
 }
 
-.hd-list-menu li {
+#header .hd-menu .hd-wrap .hd-list-menu li {
   flex: auto;
   width: 100%;
   margin-right: 16px;
@@ -44,7 +44,7 @@
   padding-right: 6px;
 }
 
-#header .hd-menu .hd-wrap .hd-list-menu li a:hover {
+#header .hd-menu .hd-wrap .hd-list-menu .nav-item a:hover {
   color: #c0c0c0;
 }
 

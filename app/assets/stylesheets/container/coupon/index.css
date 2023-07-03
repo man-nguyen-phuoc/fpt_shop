@@ -1,28 +1,46 @@
-
-.coupon_item {
-  padding: 20px;
-  margin: 10px;
+.coupon {
+  padding-bottom: 24px;
+  position: relative;
 }
 
-.strike-text {
-  font-size: 20px;
+.coupon .coupon__body {
+  padding: 10px;
+  background-color: #E8CFCF;
+  box-shadow: 0 0 10px 5px #e9b3b3;
 }
 
-.strike-number {
-  margin-bottom: 0px;
-  padding-left: 10px;
-  color: #cd1817;
+.coupon__body_sm {
+  display: flex;
+  justify-content: space-around;
 }
 
-.spec-1 {
-  color: #938787;
-  font-size: 15px
+.coupon .coupon__body:hover {
+  box-shadow: 0 0 10px 5px #E8CFCF;
+
 }
 
-h5 {
-  font-weight: 400
+.free{
+  color:#9390b8;
+  width: 50px;
+  float: right;
+  background-color: #e9b3b3;
+  border-radius: 5px;
 }
 
-.para {
-  font-size: 16px
+.plan {
+  font-weight: 700;
+}
+
+.coupon .coupon__key{
+  color:#352f7a;
+  font-weight:700;
+  font-size:45px;
+}
+
+.coupon .coupon__submit {
+  background-color:#fff5f4;
+  border-radius:30px;
+  color:#ff7c6a;
+  width:150px;
+  font-size:15px;
 }

@@ -21,7 +21,7 @@
         <div class="filter_block">
           <div class="filter_title">manufactures</div>
           <div class="row filter_checklist">
-            <%- @manufactures.each do |manufacture| %>
+            <%- @search_facade.all_manufactures.each do |manufacture| %>
               <div class="col-6 form-check">
                 <%= check_box_tag 'manufactures[]', manufacture.id, params[:manufactures] && params[:manufactures].include?(manufacture.id.to_s), class: "form-check-input" %>
                 <label class="form-check-label" for="flexCheckDefault"><%= manufacture.name %></label>
@@ -71,7 +71,7 @@
         <div class="filter_block">
           <div class="filter_title">screens</div>
           <div class="list_screens">
-            <%- @configurations.each do |configuration|%>
+            <%- @search_facade.all_configurations.each do |configuration|%>
               <div class="filter_screens ">
                 <div class="form-check">
                   <%= check_box_tag 'screens[]',configuration.screens, params[:screens] && params[:screens].include?(configuration.screens) , class: "form-check-input"%>

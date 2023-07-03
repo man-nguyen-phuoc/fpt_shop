@@ -39,7 +39,11 @@ Rails.application.routes.draw do
 
   resources :carts
 
-  resources :coupons
+  resources :coupons do
+    collection do
+      get 'coupons_stored'
+    end
+  end
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',

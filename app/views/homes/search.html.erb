@@ -8,10 +8,12 @@
         <div class="card_body">
           <div class="filter-normal">
             <div class="row filter_product">
-              <%- @itemables.each do |item|%>
-                <%= render partial: 'itemables/itemables', locals: { itemable: item, category: item['category_id'], class_name: 'col-md-4'} %>
+              <%- @search_facade.all_itemables.each do |item|%>
+                <% if item["quantity"] > 0 %>
+                  <%= render partial: 'itemables/itemables', locals: { itemable: item, category: item['category_id'], class_name: 'col-md-4'} %>
+                <% end %>
               <% end %>
-              <%= paginate @itemables %>
+              <%= paginate @search_facade.all_itemables %>
             </div>
           </div>
         </div>

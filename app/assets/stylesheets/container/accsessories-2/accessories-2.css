@@ -16,6 +16,11 @@
   border: 0.5px solid #dee2e6;
 }
 
+#accessories-2 .list-accessories .item-accessories:hover {
+  box-shadow: 0 0 10px 5px #dee2e6;
+}
+
+
 #accessories-2 .list-accessories .item-accessories .cat-item a {
   text-decoration: none;
   font-family: sans-serif;

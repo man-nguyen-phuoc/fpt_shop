@@ -1,58 +1,26 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :update_shipping_address, only: [:create]
+  before_action :import_shipping_address, only: [:create]
+  after_action :update_quantity_itemable, only: [:create]
+  after_action :update_quantity_coupon, only: [:create]
 
   def index
     @orders = current_user.orders.order(created_at: :desc)
   end
 
   def create
-    if params[:coupon_id]
-      coupon = Coupon.find(params[:coupon_id])
-    elsif params[:coupon_code]
-      coupon = Coupon.find_by(code: params[:coupon_code])
-    end
+    coupon = Coupon.where(id: params[:coupon_id]).or(Coupon.where(code: params[:coupon_code])).first
     
-    # 
     order = if params[:cart_id]
-            # Tao order detail
               order_detail = OrderDetail.create
-
-              total_price = 0
-
               order_detail_items = current_user.cart.order_detail_items
 
-              order_detail_items.each do |item|
-                item.orderable = order_detail
-                item.save
+              Orders::UpdateTotalPriceOrderDetailService.new(order_detail_items, order_detail, coupon).call
 
-                total_price += item.itemable.real_price * item.quantity
-              end
-
-              total_price = total_price - coupon.price if coupon
-
-              order_detail.update(total_price: total_price)
-
-              Order.create(
-                user_id: current_user.id,
-                shipping_address_id: current_user.shipping_address.id,
-                order_key: Faker::Code.asin,
-                order_detail: order_detail,
-                status: 'Verifying'
-              )
-
-              # Doi tat ca order detail item sang order detail
-              # Tao order cho order detail tren
+              Orders::CreateOrderFromCartService.new(order_detail, current_user).call
             else
-              Order.create!(
-                user_id: current_user.id,
-                order_detail_id: params[:order_detail_id],
-                shipping_address_id: current_user.shipping_address.id,
-                order_key: Faker::Code.asin,
-                status: 'Verifying'
-              )
+              Orders::CreateOrderFromOrderDetailService.new(params[:order_detail_id], current_user).call
             end
-
     if order
       redirect_to orders_path
     else
@@ -61,19 +29,24 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find_by(id: params[:id])
-    @order_detail = @order.order_detail
-    @shipping_address = current_user.shipping_address
-
-    @order_detail_items = @order_detail.order_detail_items
-  end
-
-  def placed
+    @show_facade = Orders::ShowFacade.new(params[:id], current_user)
   end
 
   private
 
-  def update_shipping_address
+  def import_shipping_address
     redirect_to edit_user_path(current_user) if current_user.shipping_address == nil
+  end
+
+  def update_quantity_itemable
+    order_detail_items = Order.last.order_detail.order_detail_items
+
+    Orders::UpdateQuantityItemableService.new(order_detail_items).call
+  end
+
+  def update_quantity_coupon
+    if Order.last.order_detail.coupon_id
+      Orders::UpdateQuantityCouponService.new().call
+    end
   end
 end

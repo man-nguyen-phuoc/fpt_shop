@@ -27,14 +27,16 @@
                   </div>
                 </div>
               <% end %>
+              <%= link_to coupons_stored_coupons_path, class: 'order_item', method: :get do%>
                 <div class="box me-4 my-1 bg-light">
                   <img src="https://www.freepnglogos.com/uploads/love-png/love-png-heart-symbol-wikipedia-11.png"
                       alt="">
                   <div class="d-flex align-items-center mt-2">
-                    <div class="tag">Big sale</div>
+                    <div class="tag">Coupons Stored</div>
                     <div class="ms-auto number">10</div>
                   </div>
                 </div>
+              <% end %>
             </div>
             <div class="text-uppercase">My recent orders</div>
             <%- @orders.each do |order| %>

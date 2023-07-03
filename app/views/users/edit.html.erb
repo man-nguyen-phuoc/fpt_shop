@@ -1,12 +1,12 @@
-<%= form_with model: @user, method: :put do |f| %>
+<%= form_with model: current_user, method: :put do |f| %>
   <div class="row" id="profile">
     <div class="col-3  text-center">
       <div class="panel rounded">
         <div class="panel-body">
           <div class="inner-all">
             <div class="card-body text-center">
-              <%= image_tag @user.thumbnail, class: 'rounded-circle img-fluid', width: '150' %>
-            <h5 class="my-3"><%= @user.name %></h5>
+              <%= image_tag current_user.thumbnail, class: 'rounded-circle img-fluid', width: '150' %>
+            <h5 class="my-3"><%= current_user.name %></h5>
             <%= f.file_field :avatar%>
             <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
         </div>
@@ -30,7 +30,7 @@
                           <p class="mb-0">Full Name :</p>
                         </div>
                         <div class="col-sm-9">
-                          <%= f.text_field :name, value: @user.name , class: 'form-control text-muted'%>
+                          <%= f.text_field :name, value: current_user.name , class: 'form-control text-muted'%>
                         </div>
                       </div>
                       <hr>
@@ -39,7 +39,7 @@
                           <p class="mb-0">Email :</p>
                         </div>
                         <div class="col-sm-9">
-                          <%= f.text_field :email, value: @user.email, class: 'form-control text-muted' %>
+                          <%= f.text_field :email, value: current_user.email, class: 'form-control text-muted' %>
                         </div>
                       </div>
                       <hr>
@@ -48,8 +48,8 @@
                           <p class="mb-0">Phone :</p>
                         </div>
                         <div class="col-sm-9 d-flex">
-                          <%= f.text_field :area_code, value: @user.area_code, class: 'form-control text-muted' %>
-                          <%= f.text_field :phone_number, value: @user.phone_number, class: 'form-control text-muted' %>
+                          <%= f.text_field :area_code, value: current_user.area_code, class: 'form-control text-muted' %>
+                          <%= f.text_field :phone_number, value: current_user.phone_number, class: 'form-control text-muted' %>
                         </div>
                       </div>
                     </div>

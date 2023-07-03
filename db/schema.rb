@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_18_180424) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_01_133816) do
   create_table "accessories", charset: "utf8mb3", force: :cascade do |t|
     t.integer "category_id", null: false
     t.integer "manufacture_id", null: false
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_18_180424) do
     t.datetime "updated_at", null: false
     t.integer "sell_number"
     t.integer "discount"
+    t.string "feature"
     t.index ["name"], name: "index_accessories_on_name"
   end
 
@@ -108,6 +109,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_18_180424) do
     t.integer "discount"
     t.integer "quantity"
     t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "coupons_stored_coupons", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "coupon_id"
+    t.bigint "coupons_stored_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coupon_id"], name: "index_coupons_stored_coupons_on_coupon_id"
+    t.index ["coupons_stored_id"], name: "index_coupons_stored_coupons_on_coupons_stored_id"
+  end
+
+  create_table "coupons_storeds", charset: "utf8mb3", force: :cascade do |t|
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

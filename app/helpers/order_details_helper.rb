@@ -1,6 +1,6 @@
 module OrderDetailsHelper
   def order_summary(item, quantity)
-    item.real_price * quantity.to_i
+    item.itemable.real_price * quantity.to_i
   end
 
   def order_summary_coupon(item, coupon)
@@ -12,6 +12,4 @@ module OrderDetailsHelper
       order_summary
     end
   end
-
-  
 end

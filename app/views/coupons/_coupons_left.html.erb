@@ -1,0 +1,16 @@
+  <div class="col-md-4 coupon">
+    <div class="text-center card">
+        <div class="coupon__body">
+          <div class="free"><%= coupon.quantity %></div>
+          <span class="d-block mt-3 coupon__key"><%= coupon.code%></span>
+          <span class="plan"><%= currency_to_number(coupon.price)%></span>
+          <div class="mt-3 coupon__body_sm">
+            <%= form_tag coupons_path, method: :post do %>
+              <%= hidden_field_tag :coupon_id, coupon.id%>
+              <%= submit_tag 'Add Store', class: 'btn coupon__submit  btn-lg' %>
+            <% end %>
+            <button type="button" class="btn coupon__submit  btn-lg">Use</button>
+          </div>
+        </div>
+    </div>
+  </div>

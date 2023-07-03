@@ -9,6 +9,7 @@
       <span class="product-label1">Sell numbers <%= itemable['sell_number']%></span>
       <span class="product-label2">Discount <%= itemable['discount'] %> %</span>
     </div>
+    <div class="quantity__itemable"><%= itemable['quantity']%></div>
   </div>
   <div class="cdt-product-info">
     <a href="#" class="cdt-product-name"><b><%= itemable['name'] %></b></a>
@@ -71,6 +72,18 @@
     </div>
   </div>
   <div>
-    <button type="button" class="itemable-sm btn btn-outline-primary ">Primary</button>
+    <% if itemable.class == Product || itemable.class == Accessory%>
+      <%= link_to detail_itemable(itemable) do %>
+        <div class="buy__now btn btn-outline-primary float-end">
+          <p class="buy__itemable">Buy now</p>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to detail_itemable(itemable['type'].constantize.find(itemable['id'])) do %>
+        <div class="buy__now btn btn-outline-primary float-end">
+          <p class="buy__itemable">Buy now</p>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>

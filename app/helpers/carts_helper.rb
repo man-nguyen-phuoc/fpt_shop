@@ -6,9 +6,9 @@ module CartsHelper
     end
 
     if coupon
-      cart_summary = (cart_summary - (coupon.price + 20000)) 
+      cart_summary = (cart_summary - coupon.price) + 20000
     else
-      cart_summary - 20000
+      cart_summary + 20000
     end
   end
 

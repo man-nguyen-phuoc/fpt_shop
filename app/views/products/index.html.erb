@@ -1,11 +1,15 @@
 <section class="content-sale" id="product-list">
   <div class="prd-sale">
-    <%- itemables = @products %>
+    <%- itemables = @index_facade.products %>
     <h2><%= itemables.first.category.name %></h2>
   </div>
     <div class="row product-list">
       <%- itemables.each do |item| %>
+        <%- if item.quantity > 0%>
           <%= render partial: 'itemables/itemables', locals: { itemable: item, category: item.category, class_name: 'col-md-3' } %>
+        <% else %>
+          <%= render partial: 'itemables/out_of_itemable', locals: { itemable: item, category: item.category, class_name: 'col-md-3' } %>
+        <%end%>
       <% end %>
     </div>
 </section>

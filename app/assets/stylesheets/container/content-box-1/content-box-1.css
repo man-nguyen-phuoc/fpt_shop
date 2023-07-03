@@ -12,6 +12,11 @@
   border: 0.5px solid #dee2e6;
 }
 
+.content-box-1 div.list-accessories .item-accessories:hover {
+  box-shadow: 0 0 10px 5px #dee2e6;
+}
+
+
 .content-box-1 div.list-accessories .item-accessories .ct-item-a {
   height: 100%;
   text-decoration: none;

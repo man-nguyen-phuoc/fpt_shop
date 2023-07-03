@@ -2,18 +2,22 @@ class User < ApplicationRecord
   has_one :shipping_address
   has_many :orders
   has_one :cart
+  has_many :coupons_storeds
   has_one_attached :avatar
-  has_and_belongs_to_many :coupons
   devise :database_authenticatable, :registerable, :recoverable, stretches: 13
 
   after_create :initialize_cart
   before_create :random_name
 
-  # def thumbnail
-  #   return avatar.url if avatar.attached?
+  def thumbnail    
+    if avatar.blank?
+      avatar.url
 
-  #   'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp'
-  # end
+      'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp'
+    else
+      avatar
+    end
+  end
 
   private
 

@@ -1,0 +1,92 @@
+<div class="product-sale <%= class_name %>">
+  <div class="product-img">
+    <% if itemable.class == Product || itemable.class == Accessory%>
+      <%= render 'itemables/image_tag', itemable: itemable, category: itemable['category'], detail_url: detail_itemable(itemable) %>
+    <% else %>
+      <%= render 'itemables/image_tag', itemable: itemable, category: itemable['category'], detail_url: detail_itemable(itemable['type'].constantize.find(itemable['id'])) %>
+    <% end %>
+    <div class="product-label">
+      <span class="product-label1">Sell numbers <%= itemable['sell_number']%></span>
+      <span class="product-label2">Discount <%= itemable['discount'] %> %</span>
+    </div>
+    <div class="quantity__itemable"><%= itemable['quantity']%></div>
+  </div>
+  <div class="cdt-product-info">
+    <a href="#" class="cdt-product-name"><b><%= itemable['name'] %></b></a>
+    <div class="cdt-product_show-promo">
+      <div class="progress">
+        <% if itemable.class == Hash %>
+          <p><%= currency_to_number(itemable['type'].constantize.find(itemable['id']).real_price) %></p>
+        <% else %>
+          <p><%= currency_to_number(itemable.real_price) %></p>
+        <% end %>
+        <div class="progress-bar"></div>
+      </div>
+      <div class="strike-price">
+        <p><%= currency_to_number(itemable['price']) %></p>
+      </div>
+    </div>
+    <div class="cdt-product__config">
+      <%- if itemable['type'] == 'Product' %>
+        <%= render 'itemables/products/show_configuration', itemable: itemable %>
+      <%- elsif itemable['type'] == 'Accessory' %>
+        <%= render 'itemables/accessories/show_configuration', itemable: itemable %>
+      <%- elsif itemable.class == Product %>
+        <%= render 'itemables/products/show_configuration', itemable: itemable %>
+      <%- elsif itemable.class == Accessory %>
+        <%= render 'itemables/accessories/show_configuration', itemable: itemable %>
+      <% end %>
+    </div>
+    <div class="cdt-product__config">
+      <div class="cdt-product__img-promo">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active">
+            <button class="nav-link" id="moca-20-tab" data-bs-toggle="pill" data-bs-target="#moca-20" type="button" role="tab" aria-controls="moca-20" aria-selected="true">
+              <%= image_tag '638143263918283970_PMH-02-01.webp'%>
+            </button>
+          </li>
+          <li role="presentation">
+            <button class="nav-link" id="evo-20-tab" data-bs-toggle="pill" data-bs-target="#evo-20" type="button" role="tab" aria-controls="evo-20" aria-selected="false">
+              <%= image_tag '638109347803877667_Evo.webp'%>
+            </button>
+          </li>
+          <li role="presentation">
+            <button class="nav-link" id="vnpay-20-tab" data-bs-toggle="pill" data-bs-target="#vnpay-20" type="button" role="tab" aria-controls="vnpay-20" aria-selected="false">
+              <%= image_tag '638002156152811193_Logo-VNPAYQR.webp'%>
+            </button>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+          <div id="moca-20" class="tab-pane fade in active">
+            <p>70% discount when paying via moca wallet on grap app.</p>
+          </div>
+          <div id="evo-20" class="tab-pane fade">
+            <p>Up to 1.1 million when using TPBANK EVO card.</p>
+          </div>
+          <div id="vnpay-20" class="tab-pane fade">
+            <p>Enter code EPTIP13 to get 5% discount up to VND 500,000 when paying via VNPAY-QR.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <% if itemable.class == Product || itemable.class == Accessory%>
+      <%= link_to detail_itemable(itemable) do %>
+        <div class="buy__now btn btn-outline-primary float-end">
+          <p class="buy__itemable">Buy now</p>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to detail_itemable(itemable['type'].constantize.find(itemable['id'])) do %>
+        <div class="buy__now btn btn-outline-primary float-end">
+          <p class="buy__itemable">Buy now</p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="out_of_itemables">
+    <span class="ofi_text">Out of <%= itemable.class.name %></span>
+  </div>
+</div>

@@ -8,7 +8,7 @@
             <div class="table-responsive px-md-4 px-2 pt-3">
               <table class="table table-borderless">
                 <tbody>
-                  <%- order_detail_item = @order_detail_items.first %>
+                  <%- order_detail_item = @show_facade.order_detail_items.first %>
                   <%- itemable = order_detail_item.itemable %>
                   <%= form_with url: order_detail_path(@order_detail), method: :put do |f| %>
                     <%= f.hidden_field :order_detail_item_id, value: order_detail_item.id %>
@@ -64,10 +64,11 @@
         <div class="d-flex justify-content-between pb-3"> <small class="text-muted">Transaction code</small>
           <p class="">VC115665</p>
         </div>
-        <%= form_tag order_details_path(current_user), method: :get do %>
+        <%= form_tag order_detail_path(@order_detail), method: :put do %>
+          <%= hidden_field_tag :order_detail_item_id, @order_detail.order_detail_items.first.id%>
           <div class="">
-            <% if @coupon %>
-              <%= text_field_tag :coupon_code, @coupon.code%>
+            <% if @show_facade.coupon %>
+              <%= text_field_tag :coupon_code, @show_facade.coupon.code%>
             <% else %>
               <%= text_field_tag :coupon_code %>
             <% end %>
@@ -84,7 +85,7 @@
           <div class="d-flex flex-column">
             <div class="d-flex justify-content-between pt-3"> <small class="text-muted">Order Summary:</small>
               <p>
-                <%= currency_to_number(order_detail_item.total_price)%>
+                <%= currency_to_number(order_summary(order_detail_item, order_detail_item.quantity))%>
               </p>
             </div>
             <div class="d-flex justify-content-between"> <small class="text-muted">Shipping fee:</small>
@@ -94,12 +95,12 @@
             </div>
             <div class="d-flex justify-content-between b-bottom pb-1"> <small class="text-muted">Discount:</small>
               <p>
-                <%= currency_to_number(@coupon&.price)%>
+                <%= currency_to_number(@show_facade.coupon&.price)%>
               </p>
             </div>
             <div class="d-flex justify-content-between pt-3 pb-3"> <small class="text-muted">Total Amount:</small>
               <h5 class='strike-md-code'>
-                <%= currency_to_number(order_summary_coupon(order_detail_item, @coupon) + 20_000)%>
+                <%= currency_to_number(order_summary_coupon(order_detail_item, @show_facade.coupon) + 20_000)%>
               </h5>
             </div>
             <%= submit_tag "Order", class: "btn btn-primary order-cart"%>
@@ -116,7 +117,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <%- @coupons.each do |coupon| %>
+            <%- @show_facade.all_coupons.each do |coupon| %>
               <%= form_with url: order_detail_path(@order_detail), method: :put do |form|%>
                 <%= form.hidden_field :coupon_id, value: coupon.id %>
                 <%= form.hidden_field :order_detail_item_id, value: order_detail_item.id %>

@@ -7,6 +7,8 @@ class Accessory < ApplicationRecord
   validates :name, length: { in: (6..20) }
   validates :price, comparison: { greater_than: 2_000_000 }
   validates :quantity, comparison: { greater_than: 0 }
+  validates :sell_number, comparison: { greater_than: 0 }
+  validates :discount, numericality: { in: 0..100}
 
   def real_price
     price - (price * discount / 100)

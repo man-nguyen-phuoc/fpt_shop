@@ -15,7 +15,29 @@
  */
  @import "bootstrap";
  
- .container {
+ 
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
   max-width: 1320px !important;
   padding: 0 12px !important;
- }
+}
+
+.navbar {
+  padding: 0px;
+}
+
+.fs-content {
+  background-image: url("../images/header_sale/pngtree-islamic-background-with-pattern-picture-image_1177817.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  position: relative;
+  background-color: #f8f9fa;
+  padding-bottom: 20px;
+  padding-top: 10px;
+}

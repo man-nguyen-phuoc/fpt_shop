@@ -1,27 +1,11 @@
 <div class=" mt-5 mb-5">
   <div class="d-flex justify-content-center row">
-    <div class="col-md-10">
-      <%- @coupons.each do |coupon| %>
-        <div class="row p-2 bg-white border rounded coupon_item">
-          <div class="col-md-8 mt-1">
-            <div class='d-flex'>
-              <h5>CODE:</h5>
-              <h5 class='strike-number'><%= coupon.code %></h5>
-            </div>
-            <p class="text-justify text-truncate para mb-0">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.<br><br></p>
-          </div>
-          <div class="align-items-center align-content-center col-md-4 border-left mt-1">
-            <div class="d-flex flex-row align-items-center">
-            <span class='strike-text'>Discount: </span>
-              <h4 class="mr-1 strike-number"><%= currency_to_number(coupon.price)%></h4>
-            </div>
-            <div class="d-flex flex-column mt-4">
-            <button class="btn btn-primary btn-sm" type="button">Save</button>
-            <button class="btn btn-outline-primary btn-sm mt-2" type="button">Use</button>
-            </div>
-          </div>
-        </div>
+    <%- @coupons.each  do |coupon| %>
+      <% if coupon.quantity > 0 %>
+        <%= render 'coupons_left', coupon: coupon%>
+      <% else %>
+        <%= render 'out_of_coupons', coupon: coupon%>
       <% end %>
-    </div>
+    <% end %>
   </div>
 </div>

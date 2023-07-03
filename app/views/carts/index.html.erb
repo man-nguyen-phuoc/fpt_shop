@@ -6,8 +6,8 @@
         <div class="table-responsive px-md-4 px-2 pt-3">
           <table class="table table-borderless">
             <tbody>
-            <%- @order_detail_items.each do |item| %>
-              <%= form_for filter_user_carts_path(@user), method: :post do |f| %>
+            <%- @index_facade.order_detail_items.each do |item| %>
+              <%= form_for carts_path, method: :post do |f| %>
                 <tr class="border-bottom order-item">
                   <td>
                     <div class="d-flex align-items-center">
@@ -44,15 +44,15 @@
     <div class="col-lg-4 payment-summary">
       <p class="fw-bold pt-lg-0 pt-4 pb-2">Payment Summary</p>
       <div class="card px-md-3 px-2 pt-4">
-        <% if ( @user.shipping_address == nil ||
-              @user.shipping_address.city == "" || 
-              @user.shipping_address.district == "" ||
-              @user.shipping_address.address == "" ||
-              @user.shipping_address.receiver_name == "" ||
-              @user.shipping_address.receiver_phone_number == "" ) %>
+        <% if ( current_user.shipping_address == nil ||
+              current_user.shipping_address.city == "" || 
+              current_user.shipping_address.district == "" ||
+              current_user.shipping_address.address == "" ||
+              current_user.shipping_address.receiver_name == "" ||
+              current_user.shipping_address.receiver_phone_number == "" ) %>
           <div class="unregistered mb-4">
             <span class="py-1">unregistered shipping address</span>
-            <%= link_to edit_user_path(@user), method: :get do %>
+            <%= link_to edit_user_path(current_user), method: :get do %>
             registered
             <% end%>
           </div>
@@ -60,21 +60,20 @@
         <div class="d-flex justify-content-between pb-3"> <small class="text-muted">Transaction code</small>
           <p class="">VC115665</p>
         </div>
-        <%= form_tag user_carts_path(@user), method: :get do %>
-          <div class="">
-            <% if @coupon %>
-              <%= text_field_tag :coupon_code, @coupon.code%>
-            <% else %>
-              <%= text_field_tag :coupon_code %>
-            <% end %>
-          </div>
-          <div class='d-flex justify-content-between pt-2'>
-            <%= submit_tag "Checking", class: 'coupon-md'%>
-            <!-- trigger modal -->
-            <a type="button" class="coupon-md" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Coupons
-            </a>
-          </div>
+        <%= form_tag carts_path, method: :get do %>
+        <div class="">
+          <% if @index_facade.coupon_by %>
+            <%= text_field_tag :coupon_code, @index_facade.coupon_by.code%>
+          <% else %>
+            <%= text_field_tag :coupon_code %>
+          <% end %>
+        </div>
+        <div class='d-flex justify-content-between pt-2'>
+          <%= submit_tag "Checking", class: 'coupon-md'%>
+          <a type="button" class="coupon-md" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Select CODE
+          </a>
+        </div>
         <% end %>
       <%= form_tag orders_path, method: :post do%>
         <%= hidden_field_tag :cart_id %>
@@ -86,7 +85,7 @@
         <div class="d-flex flex-column">
           <div class="d-flex justify-content-between pt-3"> <small class="text-muted">Order Summary:</small>
             <p>
-              <%= currency_to_number(cart_summary(@order_detail_items))%>
+              <%= currency_to_number(cart_summary(@index_facade.order_detail_items))%>
             </p>
           </div>
           <div class="d-flex justify-content-between"> <small class="text-muted">Shipping fee:</small>
@@ -96,12 +95,12 @@
           </div>
           <div class="d-flex justify-content-between b-bottom pb-1"> <small class="text-muted">Discount:</small>
             <p>
-              <%= currency_to_number(@coupon&.price)%>
+              <%= currency_to_number(@index_facade.coupon_by&.price)%>
             </p>
           </div>
           <div class="d-flex justify-content-between pt-3 pb-3"> <small class="text-muted">Total Amount:</small>
             <h5 class='strike-md-code'>
-              <%= currency_to_number(cart_summary_coupon(@order_detail_items, @coupon))%>
+              <%= currency_to_number(cart_summary_coupon(@index_facade.order_detail_items, @index_facade.coupon_by))%>
             </h5>
           </div>
         </div>
@@ -118,7 +117,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <%- @coupons.each do |coupon| %>
+            <%- @index_facade.all_coupons.each do |coupon| %>
               <%= form_with url: carts_path, method: :get do |form|%>
                   <%= form.hidden_field :coupon_id, value: coupon.id %>
                 <div class="row p-2 border rounded coupon-md-item mb-1">
@@ -145,4 +144,17 @@
       </div>
     </div>
   </div>
+  <div class="row mt-4">
+    <div class="">
+      <%= link_to coupons_path, class: 'all__coupons' do %>
+        <p>All coupons</p>
+      <% end %>
+    </div>
+    <div class="show__coupons d-flex">
+      <%- @index_facade.show_coupons.each do |coupon| %>
+        <%= render 'coupons/coupons_left', coupon: coupon%>
+      <% end %>
+    </div>
+  </div>
+
 </div>
