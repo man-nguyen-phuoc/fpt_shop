@@ -1,2 +1,0 @@
-class CouponsStoredCoupon < ApplicationRecord
-end

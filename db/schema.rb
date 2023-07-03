@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_01_133816) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_03_053350) do
   create_table "accessories", charset: "utf8mb3", force: :cascade do |t|
     t.integer "category_id", null: false
     t.integer "manufacture_id", null: false
@@ -111,6 +111,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_01_133816) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "coupons_coupons_storeds", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "coupon_id"
+    t.bigint "coupons_stored_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coupon_id"], name: "index_coupons_coupons_storeds_on_coupon_id"
+    t.index ["coupons_stored_id"], name: "index_coupons_coupons_storeds_on_coupons_stored_id"
   end
 
   create_table "coupons_stored_coupons", charset: "utf8mb3", force: :cascade do |t|
