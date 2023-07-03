@@ -9,3 +9,8 @@ default: &default
 development:
   <<: *default
   database: fpt_shop
+
+
+test:
+  <<: *default
+  database: fpt_shop_test
