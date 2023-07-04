@@ -105,8 +105,14 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
+    docile (1.4.0)
     erubi (1.12.0)
     execjs (2.8.1)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     faker (3.2.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
@@ -244,6 +250,12 @@ GEM
       websocket (~> 1.0)
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -291,6 +303,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  factory_bot_rails
   faker
   importmap-rails
   jbuilder
@@ -303,6 +316,7 @@ DEPENDENCIES
   rspec-rails (~> 6.0.0)
   selenium-webdriver
   shoulda-matchers (~> 5.0)
+  simplecov
   sprockets-rails
   stimulus-rails
   turbo-rails

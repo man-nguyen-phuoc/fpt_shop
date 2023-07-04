@@ -10,11 +10,9 @@ class Accessory < ApplicationRecord
   validates :sell_number, comparison: { greater_than: 0 }
   validates :discount, numericality: { in: 0..100}
 
+
+  # TODO: update unit test
   def real_price
     price - (price * discount / 100)
-  end
-
-  def discount
-    0
   end
 end
