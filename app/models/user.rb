@@ -11,8 +11,6 @@ class User < ApplicationRecord
 
   def thumbnail    
     if avatar.blank?
-      avatar.url
-
       'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp'
     else
       avatar
